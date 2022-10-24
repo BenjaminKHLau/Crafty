@@ -2,10 +2,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import CraftyLogo from "../components/pictures/CraftyLogo.png"
+import "./Navbar.css"
 
 const NavBar = () => {
   return (
     <nav>
+      <img src={CraftyLogo} className="CraftyLogo" alt="Crafty's cool logo"/>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
