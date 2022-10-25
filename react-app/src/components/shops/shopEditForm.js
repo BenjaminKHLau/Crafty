@@ -63,7 +63,7 @@ function ShopEditFormComponent({shopId}){
 
     return (
         <form className="business-form" onSubmit={subby}>
-      <h2 className="title">Create Your Very Own Shop!</h2>
+      <h2 className="title">Edit Your Shop!</h2>
       <ul className="errors">{isSubmitted && showErrors}</ul>
 
 

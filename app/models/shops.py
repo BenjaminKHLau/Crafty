@@ -7,7 +7,7 @@ class Shop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), nullable=False)
     description = db.Column(db.String(255), nullable=False)
-    shop_image_url = db.Column(db.String, nullable=False)
+    shop_image_url = db.Column(db.String)
     
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     

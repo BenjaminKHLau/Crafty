@@ -31,7 +31,7 @@ def make_shop():
             name = form.data['name'],
             description = form.data['description'],
             owner_id = current_user.id,
-            shop_image_url = form.data['imageUrl']
+            shop_image_url = form.data['shop_image_url']
             )
         db.session.add(new_shop)
         db.session.commit()
@@ -50,7 +50,7 @@ def update_shop(shopId):
             shop.name = form.data['name']
             shop.description = form.data['description']
             shop.ownerId = current_user.id
-            shop.shop_image_url = form.data['imageUrl']
+            shop.shop_image_url = form.data['shop_image_url']
     db.session.commit()
     return shop.to_dict()
 

@@ -8,4 +8,4 @@ class ShopForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     owner_id = IntegerField('ownerId', validators=[DataRequired()])
-    imageUrl = StringField('imageUrl') #optional
+    shop_image_url = StringField('imageUrl') #optional

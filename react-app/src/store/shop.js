@@ -124,6 +124,7 @@ const ShopsReducer = (state = initialState, action) => {
             return newState;
         }
         case UPDATE_SHOP: {
+            console.log("UPDATE SHOP IN REDUCER: ", action.payload)
         	newState = {...state}
         	newState[action.payload.id] = action.payload
             return newState;
