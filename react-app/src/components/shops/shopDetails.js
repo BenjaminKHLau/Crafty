@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams, useHistory } from "react-router-dom";
-import { getShopByIdThunk } from "../../store/shop"
+import { useParams, useHistory } from "react-router-dom";
+import { getShopByIdThunk, updateShopThunk, deleteShopThunk } from "../../store/shop"
+import EditShopFormModal from "./shopEditFormMODAL";
 function ShopDetailsComponent(){
     const { shopId } = useParams()
     const dispatch = useDispatch()
+    const history = useHistory()
     const shopSelect = useSelector(state => state.shops)
     const shop = shopSelect[shopId]
     const [isLoaded, setIsLoaded] = useState(false)
@@ -16,6 +18,12 @@ function ShopDetailsComponent(){
         .then(() => setIsLoaded(true))
     }, [dispatch])
 
+    const deleteShop = async (e) => {
+        e.preventDefault(e)
+        dispatch(deleteShopThunk(shopId))
+
+        history.push("/")
+    }
 
     return isLoaded && (
         <div className="shop-details-container">
@@ -24,6 +32,11 @@ function ShopDetailsComponent(){
             <div className="shop-details-info">
                 <img src={shop.shop_image_url} />
             </div>
+
+            <EditShopFormModal shopId={shop.id} />
+            <div className="edit-delete" onClick={(e) => deleteShop(e)}>
+                Delete Shop
+              </div>
         </div>
     )
 }

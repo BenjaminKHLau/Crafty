@@ -47,9 +47,9 @@ def update_shop(shopId):
     
     shop = Shop.query.get(shopId)
     if form.validate_on_submit():
-            shop.name = form.data['name'],
-            shop.description = form.data['description'],
-            shop.ownerId = current_user.id,
+            shop.name = form.data['name']
+            shop.description = form.data['description']
+            shop.ownerId = current_user.id
             shop.shop_image_url = form.data['imageUrl']
     db.session.commit()
     return shop.to_dict()
