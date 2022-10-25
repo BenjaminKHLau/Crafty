@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import CraftyLogo from "../components/pictures/CraftyLogo.png"
 import "./Navbar.css"
@@ -8,7 +8,10 @@ import "./Navbar.css"
 const NavBar = () => {
   return (
     <nav>
+      <Link to="/">
       <img src={CraftyLogo} className="CraftyLogo" alt="Crafty's cool logo"/>
+      </Link>
+
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
