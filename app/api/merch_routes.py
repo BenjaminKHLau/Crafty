@@ -37,7 +37,9 @@ def new_merch():
             )
         db.session.add(new_merch)
         db.session.commit()
-        return new_merch.to_dict()
+        return jsonify(new_merch.to_dict()), 200
+    # else: 
+    #     return {"error": "testing"}
 
 # UPDATE
 @merch_routes.route("/<int:merchId>", methods=["PUT"])

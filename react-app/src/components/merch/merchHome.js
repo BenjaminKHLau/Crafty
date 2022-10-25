@@ -5,6 +5,7 @@ import { getAllMerchThunk } from "../../store/merch";
 import "./merchHome.css"
 import MerchCard from "./merchCard";
 
+
 function MerchHome(){
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false)

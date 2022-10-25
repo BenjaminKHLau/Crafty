@@ -4,6 +4,9 @@ import { useParams, useHistory } from "react-router-dom";
 import { getShopByIdThunk, deleteShopThunk } from "../../store/shop";
 import { getAllMerchThunk } from "../../store/merch";
 import EditShopFormModal from "./shopEditFormMODAL";
+import MerchFormModal from "../merch/merchFormMODAL";
+import sorrykiwi2 from "../pictures/sorrykiwi2.png"
+
 function ShopDetailsComponent() {
 	const { shopId } = useParams();
 	const dispatch = useDispatch();
@@ -44,6 +47,9 @@ function ShopDetailsComponent() {
 							src={shop.shop_image_url}
 							alt="shop pic"
 							className="shop-details-pic"
+                            onError={(e) => {
+                                e.target.src = sorrykiwi2
+                            }}
 						/>
 					</div>
 
@@ -54,7 +60,10 @@ function ShopDetailsComponent() {
 							<img
 								src={shop.shop_image_url}
 								alt="seller pic"
-								className="seller-details-pic"
+								className="seller-details-pic" 
+                                onError={(e) => {
+                                    e.target.src = sorrykiwi2
+                                }}
                                 />
 						</div>
 						<div className="seller-details-container">
@@ -67,6 +76,9 @@ function ShopDetailsComponent() {
 						<div className="edit-delete" onClick={(e) => deleteShop(e)}>
 							Delete Shop
 						</div>
+                        <div className="add-merch">
+                            <MerchFormModal shopId={shopId} />
+                        </div>
 					</div>)}
 					</div>
 				</div>

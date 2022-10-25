@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { getAllMerchThunk } from "../../store/merch";
 import { getAllShopsThunk } from "../../store/shop";
+import sorrykiwi2 from "../pictures/sorrykiwi2.png"
+import "./merchDetails.css"
 
 function MerchDetailsComponent(){
     const dispatch = useDispatch()
@@ -29,7 +31,7 @@ function MerchDetailsComponent(){
     return isLoaded && (
         <div className="merchdetails-container">
             <div className="merchdetails-pic-container">
-                <img src={merch.merch_image_url} alt="merch detail pic" className="merchdetails-pic"/>
+                <img src={merch.merch_image_url} alt="merch detail pic" className="merchdetails-pic" onError={e => {e.target.src = sorrykiwi2}}/>
             </div>
             <div className="merchdetails-info">
             {merch.name}

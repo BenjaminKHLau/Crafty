@@ -65,6 +65,7 @@ export const addMerchThunk = (merch) => async dispatch => {
 
   if (response.ok) {
     const newMerch = await response.json()
+    console.log("newMerch ADD THUNK: ", newMerch)
     dispatch(createNewMerchACTION(newMerch))
     return newMerch
   }

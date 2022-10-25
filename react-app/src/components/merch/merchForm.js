@@ -39,15 +39,15 @@ function MerchFormComponent({shopId}){
             addMerchThunk({
               name,
               description,
-              merch_image_url: image,
               owner_id: user.id,
+              merch_image_url: image,
               shop_id: shopId
 
             })
           );
       
           if (newMerch.errors) setErrors([...Object.values(newMerch.errors)])
-          else history.push(`/shops/${newMerch.id}`);
+          else history.push(`/merch/${newMerch.id}`);
         }
 
         const showErrors = errors.map((error) => (
@@ -61,19 +61,19 @@ function MerchFormComponent({shopId}){
 
     return (
         <form className="business-form" onSubmit={subby}>
-      <h2 className="title">Create Your Very Own Shop!</h2>
+      <h2 className="title">Add a Merchandise!</h2>
       <ul className="errors">{isSubmitted && showErrors}</ul>
 
 
       <div className="form-css">
         <div className="form-box">
           <label className="form-stuff">
-            Shop Name
+            Product Name
             <input
               className="form-input"
               type="text"
               name="name"
-              placeholder="Shop Name"
+              placeholder="Product Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -114,7 +114,7 @@ function MerchFormComponent({shopId}){
               isSubmitted && errors.length > 0 ? "noob" : "submit-button"
           }
           >
-            Create Shop
+            Add Product
           </button>
 
       </div>
