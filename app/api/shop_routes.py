@@ -12,7 +12,7 @@ shops_routes = Blueprint('shops', __name__)
 @shops_routes.route("/")
 def home():
     allShops = Shop.query.all()
-    return jsonify({shop.id: shop.to_dict() for shop in allShops})
+    return {shop.id: shop.to_dict() for shop in allShops}
 
 # READ
 @shops_routes.route("/<int:shopId>")
@@ -30,8 +30,8 @@ def make_shop():
         new_shop = Shop(
             name = form.data['name'],
             description = form.data['description'],
-            ownerId = current_user.id,
-            imageUrl = form.data['imageUrl'],
+            owner_id = current_user.id,
+            shop_image_url = form.data['imageUrl']
             )
         db.session.add(new_shop)
         db.session.commit()

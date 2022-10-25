@@ -8,6 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import ShopDetailsComponent from './components/shops/shopDetails';
+import ShopsHome from './components/shops/shopHome';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,21 +30,32 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
+
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
         <Route path='/' exact={true} >
           <h1>CRAFTY!!</h1>
+          <ShopsHome />
         </Route>
+
+        <Route path='/shops/:shopId'>
+          <ShopDetailsComponent />
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );
