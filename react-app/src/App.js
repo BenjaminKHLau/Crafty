@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ShopDetailsComponent from './components/shops/shopDetails';
 import ShopsHome from './components/shops/shopHome';
+import MerchDetailsComponent from './components/merch/merchDetails';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +55,10 @@ function App() {
 
         <Route path='/shops/:shopId'>
           <ShopDetailsComponent />
+        </Route>
+
+        <Route path='/merch/:merchId'>
+          <MerchDetailsComponent />
         </Route>
 
       </Switch>

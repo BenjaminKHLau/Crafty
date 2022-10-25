@@ -11,7 +11,6 @@ function ShopDetailsComponent() {
 
 	const session = useSelector((state) => state.session);
 	const shopSelect = useSelector((state) => state.shops);
-	const merchSelect = useSelector((state) => state.merch);
 	const shop = shopSelect[shopId];
 	const [isLoaded, setIsLoaded] = useState(false);
 

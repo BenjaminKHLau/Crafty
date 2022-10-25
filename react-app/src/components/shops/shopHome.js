@@ -5,6 +5,7 @@ import { getAllShopsThunk } from "../../store/shop"
 import { getAllMerchThunk } from "../../store/merch";
 import ShopCard from "./shopCard";
 import "./shopHome.css"
+import MerchHome from "../merch/merchHome";
 
 function ShopsHome(){
     const dispatch = useDispatch()
@@ -24,15 +25,19 @@ function ShopsHome(){
     }, [dispatch])
 
     return isLoaded && (
+        <div className="shop-merch-home">
+            <MerchHome />
         <div className="home">
+
             {shopsArr.map(shop => (
                 <Link to={`/shops/${shop.id}`} className="shop-link" key={shop.id}>
                     <ShopCard shop={shop} />
                 </Link>
 
-            ))}
+))}
 
         </div>
+</div>
     )
 }
 

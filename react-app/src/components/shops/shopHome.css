@@ -3,6 +3,16 @@ a {
     color: black;
 }
 
+/* Merch Home */
+
+.shop-merch-home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* Shop Home */
 .shopcard {
     display: flex;
     justify-content: center;

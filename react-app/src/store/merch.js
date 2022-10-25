@@ -114,7 +114,6 @@ const MerchReducer = (state = initialState, action) => {
     let newState = {};
     switch(action.type){
         case GET_ALL_ITEMS: {
-            console.log("REDUCER GET ALL MERCH ACTION: ",action)
             newState = {...action.payload}
             return newState
         }
