@@ -7,4 +7,4 @@ class MerchandiseForm(FlaskForm):
     description = StringField('description', validators=[DataRequired()])
     ownerId = IntegerField('ownerId', validators=[DataRequired()])
     storeId = IntegerField('storeId', validators=[DataRequired()])
-    imageUrl = StringField('imageUrl')
+    merch_image_url = StringField('imageUrl')

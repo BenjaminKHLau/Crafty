@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllShopsThunk } from "../../store/shop"
+import { getAllMerchThunk } from "../../store/merch";
 import ShopCard from "./shopCard";
 import "./shopHome.css"
 
@@ -16,6 +17,7 @@ function ShopsHome(){
 
     useEffect(() => {
         dispatch(getAllShopsThunk())
+        .then(() => getAllMerchThunk())
         .then(() => setIsLoaded(true))
     }, [dispatch])
 

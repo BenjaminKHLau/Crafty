@@ -31,7 +31,7 @@ def new_merch():
             name = form.data['name'],
             description = form.data['description'],
             owner_id = current_user.id,
-            merch_image_url = form.data['imageUrl'],
+            merch_image_url = form.data['merch_image_url'],
             shop_id = form.data['shop_id']
             )
         db.session.add(new_merch)
@@ -51,7 +51,7 @@ def update_merch(merchId):
             merch.description = form.data['description'],
             merch.ownerId = current_user.id,
             merch.shop_id = merch.shop_id
-            merch.merch_image_url = form.data['imageUrl']
+            merch.merch_image_url = form.data['merch_image_url']
     db.session.commit()
     return merch.to_dict()
 
