@@ -10,9 +10,11 @@ function ShopsHome(){
     const dispatch = useDispatch()
 
     const allShops = useSelector(state => state.shops)
+    const allMerch = useSelector(state => state.merch)
     const [isLoaded, setIsLoaded] = useState(false)
     const shopsArr = Object.values(allShops)
     // console.log("ALL SHOPS: ", allShops)
+    console.log("ALL MERCH: ", allMerch)
     // console.log("Shops Array", shopsArr)
 
     useEffect(() => {

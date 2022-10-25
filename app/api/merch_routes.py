@@ -11,8 +11,9 @@ merch_routes = Blueprint('merch', __name__)
 # READ
 @merch_routes.route("/")
 def merch_home():
+    print("MERCH BACKEND ROUTE RUNNING")
     allMerch = Merchandise.query.all()
-    return jsonify({merch.id: merch.to_dict() for merch in allMerch})
+    return {merch.id: merch.to_dict() for merch in allMerch}
 
 # READ
 @merch_routes.route("/<int:merchId>")

@@ -1,9 +1,9 @@
 // Action Types
-const CREATE_NEW_ITEM = "shop/CREATE"
-const GET_ALL_ITEMS = "shop/READ"
-const UPDATE_ITEM = "shop/UPDATE"
-const GET_ITEM_BY_ID = "shopId/READ"
-const DELETE_ITEM = "shop/DELETE"
+const CREATE_NEW_ITEM = "item/CREATE"
+const GET_ALL_ITEMS = "item/READ"
+const UPDATE_ITEM = "item/UPDATE"
+const GET_ITEM_BY_ID = "itemId/READ"
+const DELETE_ITEM = "item/DELETE"
 
 // Action Creators
 const createNewMerchACTION = (payload) => {
@@ -43,10 +43,12 @@ const getMerchByIdACTION = (payload) => {
 
  // Thunk Action Creators
 export const getAllMerchThunk = () => async dispatch => {
+    console.log(" ~~~~~GET MERCH THUNK RUNNING ~~~~")
     const response = await fetch(`/api/merch/`, {
         method: "GET"
     })
     const data = await response.json();
+    console.log("GET ALL MERCH THUNK: ", data)
     if (response.ok){
         dispatch(getAllMerchACTION(data))
     }

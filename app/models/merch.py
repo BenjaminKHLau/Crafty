@@ -23,7 +23,8 @@ class Merchandise(db.Model):
             "name": self.name,
             "description": self.description,
             "shop_id": self.shop_id,
-            "merch_image_url": self.merch_image_url
+            "merch_image_url": self.merch_image_url,
+            "owner_id": self.owner_id
         }
 
         return response

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getShopByIdThunk, deleteShopThunk } from "../../store/shop";
+import { getAllMerchThunk } from "../../store/merch";
 import EditShopFormModal from "./shopEditFormMODAL";
 function ShopDetailsComponent() {
 	const { shopId } = useParams();
@@ -10,6 +11,7 @@ function ShopDetailsComponent() {
 
 	const session = useSelector((state) => state.session);
 	const shopSelect = useSelector((state) => state.shops);
+	const merchSelect = useSelector((state) => state.merch);
 	const shop = shopSelect[shopId];
 	const [isLoaded, setIsLoaded] = useState(false);
 
@@ -22,7 +24,9 @@ function ShopDetailsComponent() {
 	// console.log("USER IN SHOP DETAILS: ", user);
 
 	useEffect(() => {
-		dispatch(getShopByIdThunk(shopId)).then(() => setIsLoaded(true));
+		dispatch(getShopByIdThunk(shopId))
+        .then(() => getAllMerchThunk())
+        .then(() => setIsLoaded(true))
 	}, [dispatch, shopId]);
 
 	const deleteShop = async (e) => {

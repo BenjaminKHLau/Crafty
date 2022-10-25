@@ -30,8 +30,8 @@ def make_shop():
         new_shop = Shop(
             name = form.data['name'],
             description = form.data['description'],
-            owner_id = current_user.id,
-            shop_image_url = form.data['shop_image_url']
+            shop_image_url = form.data['shop_image_url'],
+            owner_id = current_user.id
             )
         db.session.add(new_shop)
         db.session.commit()

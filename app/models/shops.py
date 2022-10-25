@@ -8,8 +8,8 @@ class Shop(db.Model):
     name = db.Column(db.String(40), nullable=False)
     description = db.Column(db.String(255), nullable=False)
     shop_image_url = db.Column(db.String)
-    
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    
     
     
     # RELATIONSHIPS
