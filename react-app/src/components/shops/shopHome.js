@@ -19,7 +19,7 @@ function ShopsHome(){
 
     useEffect(() => {
         dispatch(getAllShopsThunk())
-        .then(() => getAllMerchThunk())
+        .then(() => dispatch(getAllMerchThunk()))
         .then(() => setIsLoaded(true))
     }, [dispatch])
 

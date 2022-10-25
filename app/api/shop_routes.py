@@ -8,17 +8,24 @@ from ..forms import ShopForm, MerchandiseForm
 shops_routes = Blueprint('shops', __name__)
 
 
-# READ
+# READ ALL
 @shops_routes.route("/")
 def home():
     allShops = Shop.query.all()
     return {shop.id: shop.to_dict() for shop in allShops}
 
-# READ
+# READ SHOP BY ID
 @shops_routes.route("/<int:shopId>")
 def shop_details(shopId):
     shop = Shop.query.get(shopId)
     return shop.to_dict()
+
+# READ SHOP AND MERCH?
+# @shops_routes.route("/<int:shopId>")
+# def shop_details_merch(shopId):
+#     shop = Shop.query.get(shopId)
+#     merch = Merchandise.query.filter_by(shop_id=shopId).all()
+#     return merch.to_dict()
 
 # CREATE
 @shops_routes.route("/", methods=["POST"])

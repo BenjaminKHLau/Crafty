@@ -43,12 +43,10 @@ const getMerchByIdACTION = (payload) => {
 
  // Thunk Action Creators
 export const getAllMerchThunk = () => async dispatch => {
-    console.log(" ~~~~~GET MERCH THUNK RUNNING ~~~~")
     const response = await fetch(`/api/merch/`, {
         method: "GET"
     })
     const data = await response.json();
-    console.log("GET ALL MERCH THUNK: ", data)
     if (response.ok){
         dispatch(getAllMerchACTION(data))
     }

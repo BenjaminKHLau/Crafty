@@ -13,7 +13,7 @@ class Merchandise(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     
     # RELATIONSHIPS
-    shop = relationship("Shop", back_populates="merch")
+    shop = db.relationship("Shop", back_populates="merch")
     # review = relationship("Review", back_populates="business", cascade="all, delete-orphan")
     
     

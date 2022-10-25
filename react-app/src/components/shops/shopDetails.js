@@ -25,7 +25,7 @@ function ShopDetailsComponent() {
 
 	useEffect(() => {
 		dispatch(getShopByIdThunk(shopId))
-        .then(() => getAllMerchThunk())
+        .then(() => dispatch(getAllMerchThunk()))
         .then(() => setIsLoaded(true))
 	}, [dispatch, shopId]);
 

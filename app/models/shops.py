@@ -13,7 +13,7 @@ class Shop(db.Model):
     
     
     # RELATIONSHIPS
-    merch = relationship("Merchandise", back_populates="shop", cascade="all, delete-orphan")
+    merch = db.relationship("Merchandise", back_populates="shop", cascade="all, delete-orphan")
     
     def to_dict(self):
         response = {
@@ -21,7 +21,8 @@ class Shop(db.Model):
             "name": self.name,
             "description": self.description,
             "owner_id": self.owner_id,
-            "shop_image_url": self.shop_image_url
+            "shop_image_url": self.shop_image_url,
+            "merch": [merch.to_dict() for merch in self.merch]
         }
 
         return response
