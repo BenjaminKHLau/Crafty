@@ -35,7 +35,8 @@ def make_shop():
             )
         db.session.add(new_shop)
         db.session.commit()
-        return new_shop.to_dict()
+        return jsonify(new_shop.to_dict()), 200
+    else: return {"errors": form.errors}, 401
 
 # UPDATE
 @shops_routes.route("/<int:shopId>", methods=["PUT"])
@@ -49,7 +50,7 @@ def update_shop(shopId):
             shop.name = form.data['name'],
             shop.description = form.data['description'],
             shop.ownerId = current_user.id,
-            shop.imageUrl = form.data['imageUrl']
+            shop.shop_image_url = form.data['imageUrl']
     db.session.commit()
     return shop.to_dict()
 

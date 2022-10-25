@@ -55,7 +55,7 @@ export const getAllShopsThunk = () => async dispatch => {
 }
 
 export const addShopThunk = (shop) => async dispatch => {
-  const response = await fetch(`/api/shops`, {
+  const response = await fetch(`/api/shops/`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
