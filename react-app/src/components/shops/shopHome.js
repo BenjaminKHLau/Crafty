@@ -22,7 +22,7 @@ function ShopsHome(){
     return isLoaded && (
         <div className="home">
             {shopsArr.map(shop => (
-                <Link to={`/shops/${shop.id}`} className="shop-link">
+                <Link to={`/shops/${shop.id}`} className="shop-link" key={shop.id}>
                     <ShopCard shop={shop} />
                 </Link>
 
