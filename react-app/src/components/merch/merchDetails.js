@@ -67,7 +67,7 @@ function MerchDetailsComponent() {
 
 			</div>
 				{owner && (
-					<div className="owner-perms">
+					<div className="owner-perms2">
 						<MerchEditFormModal merchId={merchId} />
 						<div className="owner-controls" onClick={(e) => deleteMerch(e)}>
 							Delete Item
