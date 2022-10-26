@@ -35,11 +35,12 @@
 .owner-perms {
     display: flex;
     justify-content: flex-end;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 20px;
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 20px;
+    gap: 5px;
 }
 
 .owner-controls {
@@ -56,6 +57,7 @@
     width:max-content;
     background-color: rgb(255, 110, 66);
     color: white;
+    height: 20px;
 }
 
 .merchdetails-store-name {
@@ -65,12 +67,30 @@
     font-weight: 200;
     border-radius: 6px;
     background-color: rgba(241, 114, 69, .4);
+    max-width: 400px;
 }
 
 .store-name-details {
-    font-size: 18pt;
+    font-size: 20pt;
+    transition-duration: 200ms;
+    word-break: break-all;
+}
+
+.store-name-details:hover {
+    font-size: 20pt;
+    text-decoration: underline;
+    transition-duration: 200ms;
+}
+
+.visit-shop {
+    text-decoration: underline;
+}
+
+.merchdetails-info {
+    word-break: break-all;
 }
 
 .click-to-store {
-    /* background-color: rgba(241, 114, 69, .4); */
+    word-break: break-all;
+
 }

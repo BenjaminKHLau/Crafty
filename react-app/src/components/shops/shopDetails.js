@@ -73,13 +73,13 @@ function ShopDetailsComponent() {
 						</div>
                                 </div>
 					{ owner && (<div className="owner-perms">
-						<EditShopFormModal shopId={shop.id} />
-						<div className="edit-delete" onClick={(e) => deleteShop(e)}>
-							Delete Shop
-						</div>
                         <div className="add-merch">
                             <MerchFormModal shopId={shopId} />
                         </div>
+						<EditShopFormModal shopId={shop.id} />
+						<div className="owner-controls" onClick={(e) => deleteShop(e)}>
+							Delete Shop
+						</div>
 					</div>)}
 					</div>
 				</div>
