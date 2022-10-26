@@ -70,10 +70,11 @@ function MerchEditFormComponent({merchId}){
       <ul className="errors">{isSubmitted && showErrors}</ul>
 
 
-      <div className="form-css">
-        <div className="form-box">
+      {/* <div className="form-css"> */}
+        {/* <div className="form-box"> */}
           <label className="form-stuff">
             Product Name
+            </label>
             <input
               className="form-input"
               type="text"
@@ -82,12 +83,12 @@ function MerchEditFormComponent({merchId}){
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </label>
 
-          </div>
+          {/* </div> */}
 
           <label className="form-stuff">
             Image URL
+            </label>
             <input
               className="form-input"
               type="text"
@@ -96,10 +97,10 @@ function MerchEditFormComponent({merchId}){
               value={image}
               onChange={(e) => setImage(e.target.value)}
             />
-          </label>
 
           <label className="form-stuff">
             Description
+            </label>
             <input
               className="form-input"
               type="text"
@@ -108,21 +109,20 @@ function MerchEditFormComponent({merchId}){
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-          </label>
-        </div>
+        {/* </div> */}
 
-        <div className="submit">
+        {/* <div className="submit"> */}
           <button
             type="submit"
             disabled={isSubmitted && errors.length > 0}
             className={
-              isSubmitted && errors.length > 0 ? "noob" : "submit-button"
+              isSubmitted && errors.length > 0 ? "noob" : "submit-button-login"
           }
           >
             Edit Merchandise
           </button>
 
-      </div>
+      {/* </div> */}
     </form>
     )
 }

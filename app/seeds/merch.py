@@ -24,8 +24,7 @@ images = ["https://i.pinimg.com/originals/88/eb/8e/88eb8ef9504894cc4f32eb47263de
           "https://i.pinimg.com/originals/39/7c/e0/397ce07e74b4d505ae68962491dfb4c4.png",
           "https://cdnb.artstation.com/p/assets/images/images/046/325/633/large/pk3001-new-piskel-1-png-1-1.jpg?1644855709",
           "https://i.redd.it/obf7lb6cxa171.jpg",
-          "https://i.etsystatic.com/16870471/r/il/22cd6b/1860402848/il_570xN.1860402848_89c5.jpg",
-          "https://www.kindpng.com/picc/m/467-4674096_minecraft-for-windows-pixel-art-minecraft-food-hd.png"
+          "https://i.etsystatic.com/16870471/r/il/22cd6b/1860402848/il_570xN.1860402848_89c5.jpg"
           ]
         #   "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png/revision/latest?cb=20201017135722",
         #   "https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/ea/End_Crystal_JE2.gif/revision/latest?cb=20200512200814",
