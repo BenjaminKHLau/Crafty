@@ -1,25 +1,29 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateShopThunk } from "../../store/shop"
+import { useHistory } from "react-router-dom";
+import { updateMerchThunk } from "../../store/merch";
 
 
-function ShopEditFormComponent({shopId}){
+function MerchEditFormComponent({merchId}){
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const session = useSelector(state => state.session)
-    const allShops = useSelector(state => state.shops)
-    const shop = allShops[shopId]
-    // console.log("SHOPS IN FORM: ", allShops)
+    const merchSelector = useSelector(state => state.merch)
+    console.log("merch selector in edit form: ", merchSelector[merchId])
+    const merch = merchSelector[merchId]
+    console.log("merch : ", merch)
     
-    const [name, setName] = useState(shop.name);
-    const [description, setDescription] = useState(shop.description);
-    const [image, setImage] = useState(shop.shop_image_url)
+    const [name, setName] = useState(merch.name);
+    const [description, setDescription] = useState(merch.description);
+    const [image, setImage] = useState(merch.merch_image_url)
     const [errors, setErrors] = useState([]);
     const [isSubmitted, setIsSubmitted] = useState(false);
     
     const user = session.user ? session.user : null
-    // console.log("USER IN FORM: ", user)
-    
+    console.log("USER IN FORM: ", user)
+
+
     useEffect(() => {
         const errors = []
         if (name.length < 3) errors.push("Please provide a name between 3-40 characters")
@@ -36,11 +40,19 @@ function ShopEditFormComponent({shopId}){
           return;
         }
 
-        let newShop = dispatch(updateShopThunk({name,description,shop_image_url: image,owner_id: user.id}, shopId))
-        // .then(() => getShopByIdThunk(shopId));
+        let newMerch = await dispatch(
+            updateMerchThunk({
+              name,
+              description,
+              owner_id: user.id,
+              merch_image_url: image,
+              shop_id: merchSelector[merchId].shop_id
+
+            }, merchId)
+          );
       
-          if (newShop.errors) setErrors([...Object.values(newShop.errors)])
-        //   else history.push(`/shops/${newShop.id}`);
+          if (newMerch.errors) setErrors([...Object.values(newMerch.errors)])
+        //   else history.push(`/merch/${newMerch.id}`);
         }
 
         const showErrors = errors.map((error) => (
@@ -54,19 +66,19 @@ function ShopEditFormComponent({shopId}){
 
     return (
         <form className="business-form" onSubmit={subby}>
-      <h2 className="title">Edit Your Shop!</h2>
+      <h2 className="title">Edit Merchandise!</h2>
       <ul className="errors">{isSubmitted && showErrors}</ul>
 
 
       <div className="form-css">
         <div className="form-box">
           <label className="form-stuff">
-            Shop Name
+            Product Name
             <input
               className="form-input"
               type="text"
               name="name"
-              placeholder="Shop Name"
+              placeholder="Product Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -107,7 +119,7 @@ function ShopEditFormComponent({shopId}){
               isSubmitted && errors.length > 0 ? "noob" : "submit-button"
           }
           >
-            Edit Shop
+            Edit Merchandise
           </button>
 
       </div>
@@ -115,4 +127,4 @@ function ShopEditFormComponent({shopId}){
     )
 }
 
-export default ShopEditFormComponent;
+export default MerchEditFormComponent;

@@ -6,6 +6,7 @@ import { getAllMerchThunk } from "../../store/merch";
 import EditShopFormModal from "./shopEditFormMODAL";
 import MerchFormModal from "../merch/merchFormMODAL";
 import sorrykiwi2 from "../pictures/sorrykiwi2.png"
+import MerchInShopComponent from "../merch/merchInShop";
 
 function ShopDetailsComponent() {
 	const { shopId } = useParams();
@@ -82,6 +83,11 @@ function ShopDetailsComponent() {
 					</div>)}
 					</div>
 				</div>
+                <div className="merchinshopcomponent">
+                    <div className="inventory">Browse our Merchandise!</div>
+                <MerchInShopComponent />
+                </div>
+
 			</div>
 		)
 	);

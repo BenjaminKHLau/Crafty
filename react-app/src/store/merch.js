@@ -1,3 +1,5 @@
+import { deleteMerchACTION2 } from "./shop"
+
 // Action Types
 const CREATE_NEW_ITEM = "item/CREATE"
 const GET_ALL_ITEMS = "item/READ"
@@ -96,13 +98,14 @@ export const getMerchByIdThunk = (merchId) => async dispatch => {
     }
 }
 
-export const deleteMerchThunk = (merchId) => async dispatch => {
+export const deleteMerchThunk = (merchId, shopId) => async dispatch => {
     const response = await fetch(`/api/merch/${merchId}`, {
         method: "DELETE"
     });
 
     if (response.ok) {
         dispatch(deleteMerchACTION(merchId))
+        dispatch(deleteMerchACTION2({merchId, shopId}))
     }
 }
 

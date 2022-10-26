@@ -50,9 +50,9 @@ def update_merch(merchId):
     
     merch = Merchandise.query.get(merchId)
     if form.validate_on_submit():
-            merch.name = form.data['name'],
-            merch.description = form.data['description'],
-            merch.ownerId = current_user.id,
+            merch.name = form.data['name']
+            merch.description = form.data['description']
+            merch.ownerId = current_user.id
             merch.shop_id = merch.shop_id
             merch.merch_image_url = form.data['merch_image_url']
     db.session.commit()
@@ -63,7 +63,7 @@ def update_merch(merchId):
 @merch_routes.route("/<int:merchId>", methods=["DELETE"])
 @login_required
 def delete_merch(merchId):
-    merch = Shop.query.get(merchId)
+    merch = Merchandise.query.get(merchId)
     db.session.delete(merch)
     db.session.commit()
     return {

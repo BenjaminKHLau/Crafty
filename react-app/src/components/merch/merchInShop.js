@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getAllMerchThunk } from "../../store/merch";
 import "./merchHome.css"
 import MerchCard from "./merchCard";
 
 
-function MerchHome(){
+function MerchInShopComponent(){
+    const {shopId} = useParams()
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false)
-    const merchSelector = useSelector(state => state.merch)
-    const merchArr = Object.values(merchSelector)
+    const shopsSelector = useSelector(state => state.shops)
+    const merchArr = shopsSelector[shopId].merch
+    // const merchSelector = useSelector(state => state.merch)
+    // const merchArr = Object.values(merchSelector)
     // console.log("MERCH SELECTED: ",merchArr)
+    // console.log("SHOP SELECTED: ",shopsSelector[shopId].merch)
+
 
     function shuffle(array) {
         let counter = array.length;
@@ -28,7 +33,7 @@ function MerchHome(){
     let shuffled = shuffle(merchArr)
     // console.log("SHUFFLED?: ", shuffled)
     
-    if(shuffled.length > 10) shuffled = shuffled.slice(0, 10)
+    // if(shuffled.length > 10) shuffled = shuffled.slice(0, 10)
     // console.log("OVER 10 SHUFFLED?: ", shuffled)
 
 
@@ -55,4 +60,4 @@ function MerchHome(){
     )
 }
 
-export default MerchHome;
+export default MerchInShopComponent;

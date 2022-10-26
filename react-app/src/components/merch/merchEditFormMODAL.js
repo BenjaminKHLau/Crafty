@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from '../MODAL/modal';
 import { useSelector } from 'react-redux';
-import ShopFormComponent from './shopForm';
+import MerchEditFormComponent from './merchEditForm';
 
-function ShopFormModal() {
+function MerchEditFormModal({merchId}) {
   const [showModal, setShowModal] = useState(false);
 
-  const allShops = useSelector(state => state.shops)
+  const allMerch = useSelector(state => state.merch)
 
 
   useEffect(()=> {
     setShowModal(false)
-  }, [allShops])
+  }, [allMerch])
 
   return (
     <>
-      <div className='login-signup' onClick={() => setShowModal(true)}>Start a Shop</div>
+      <div className='create-shop-button' onClick={() => setShowModal(true)}>Edit Merchandise</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ShopFormComponent />
+          <MerchEditFormComponent merchId={merchId}/>
         </Modal>
       )}
     </>
   );
 }
 
-export default ShopFormModal;
+export default MerchEditFormModal;

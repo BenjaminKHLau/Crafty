@@ -1,32 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, Link } from "react-router-dom";
-import { getAllMerchThunk } from "../../store/merch";
+import { getAllMerchThunk, deleteMerchThunk } from "../../store/merch";
 import { getAllShopsThunk } from "../../store/shop";
 import sorrykiwi2 from "../pictures/sorrykiwi2.png"
 import "./merchDetails.css"
+import MerchEditFormModal from "./merchEditFormMODAL";
 
 function MerchDetailsComponent(){
     const dispatch = useDispatch()
+    const history = useHistory()
     const { merchId } = useParams()
 
     const [isLoaded, setIsLoaded] = useState(false);
 
+    const session = useSelector((state) => state.session);
     const merchSelector = useSelector(state => state.merch)
     const shopsSelector = useSelector(state => state.shops)
     const merch = merchSelector[merchId]
-    console.log("MERCH SELECTOR IN MERCH DETAILS: ",merch)
-    // console.log("SHOPS SELECTOR IN MERCH DETAILS: ",shopsSelector)
+
+
     const shop = shopsSelector[merch?.shop_id]
-    console.log("SHOP: ",shop)
+    const user = session.user ? session.user : null;
 
-
+    let owner = false;
+	if (user) owner = merch?.owner_id === user.id;
 
     useEffect(() => {
         dispatch(getAllMerchThunk())
         .then(() => dispatch(getAllShopsThunk()))
         .then(() => setIsLoaded(true))
 	}, [dispatch, merchId]);
+
+        const deleteMerch = async (e) => {
+		    e.preventDefault(e);
+		    dispatch(deleteMerchThunk(merchId, merch.shop_id))
+            // .then(() => dispatch(getShopByIdThunk(merch.shop_id)))
+
+		    history.push(`/shops/${merch.shop_id}`);
+	    };
 
     return isLoaded && (
         <div className="merchdetails-container">
@@ -37,6 +49,10 @@ function MerchDetailsComponent(){
             {merch.name}
             </div>
             <div className="click-to-store">Like this product? Visit <Link to={`/shops/${merch.shop_id}`}>{shop.name}</Link> </div>
+                    <MerchEditFormModal merchId={merchId} />
+                        <div className="edit-delete" onClick={(e) => deleteMerch(e)}>
+							Delete Item
+						</div>
         </div>
     )
 }
