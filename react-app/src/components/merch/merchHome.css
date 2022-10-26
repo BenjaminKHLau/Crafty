@@ -1,0 +1,13 @@
+.merch-card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+}
+
+.merch-home-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+}

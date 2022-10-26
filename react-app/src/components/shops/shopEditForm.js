@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { updateShopThunk, getShopByIdThunk } from "../../store/shop"
 
 
 function ShopEditFormComponent({shopId}){
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const session = useSelector(state => state.session)
     const allShops = useSelector(state => state.shops)
@@ -44,8 +42,8 @@ function ShopEditFormComponent({shopId}){
               description,
               shop_image_url: image,
               owner_id: user.id
-
             }, shopId)
+            .then(() => getShopByIdThunk(shopId))
           );
       
           if (newShop.errors) setErrors([...Object.values(newShop.errors)])
@@ -63,7 +61,7 @@ function ShopEditFormComponent({shopId}){
 
     return (
         <form className="business-form" onSubmit={subby}>
-      <h2 className="title">Create Your Very Own Shop!</h2>
+      <h2 className="title">Edit Your Shop!</h2>
       <ul className="errors">{isSubmitted && showErrors}</ul>
 
 

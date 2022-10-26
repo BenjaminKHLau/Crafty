@@ -11,8 +11,9 @@ merch_routes = Blueprint('merch', __name__)
 # READ
 @merch_routes.route("/")
 def merch_home():
+    print("MERCH BACKEND ROUTE RUNNING")
     allMerch = Merchandise.query.all()
-    return jsonify({merch.id: merch.to_dict() for merch in allMerch})
+    return {merch.id: merch.to_dict() for merch in allMerch}
 
 # READ
 @merch_routes.route("/<int:merchId>")
@@ -31,12 +32,14 @@ def new_merch():
             name = form.data['name'],
             description = form.data['description'],
             owner_id = current_user.id,
-            merch_image_url = form.data['imageUrl'],
+            merch_image_url = form.data['merch_image_url'],
             shop_id = form.data['shop_id']
             )
         db.session.add(new_merch)
         db.session.commit()
-        return new_merch.to_dict()
+        return jsonify(new_merch.to_dict()), 200
+    # else: 
+    #     return {"error": "testing"}
 
 # UPDATE
 @merch_routes.route("/<int:merchId>", methods=["PUT"])
@@ -51,7 +54,7 @@ def update_merch(merchId):
             merch.description = form.data['description'],
             merch.ownerId = current_user.id,
             merch.shop_id = merch.shop_id
-            merch.merch_image_url = form.data['imageUrl']
+            merch.merch_image_url = form.data['merch_image_url']
     db.session.commit()
     return merch.to_dict()
 

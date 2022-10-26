@@ -8,17 +8,24 @@ from ..forms import ShopForm, MerchandiseForm
 shops_routes = Blueprint('shops', __name__)
 
 
-# READ
+# READ ALL
 @shops_routes.route("/")
 def home():
     allShops = Shop.query.all()
     return {shop.id: shop.to_dict() for shop in allShops}
 
-# READ
+# READ SHOP BY ID
 @shops_routes.route("/<int:shopId>")
 def shop_details(shopId):
     shop = Shop.query.get(shopId)
     return shop.to_dict()
+
+# READ SHOP AND MERCH?
+# @shops_routes.route("/<int:shopId>")
+# def shop_details_merch(shopId):
+#     shop = Shop.query.get(shopId)
+#     merch = Merchandise.query.filter_by(shop_id=shopId).all()
+#     return merch.to_dict()
 
 # CREATE
 @shops_routes.route("/", methods=["POST"])
@@ -30,8 +37,8 @@ def make_shop():
         new_shop = Shop(
             name = form.data['name'],
             description = form.data['description'],
-            owner_id = current_user.id,
-            shop_image_url = form.data['imageUrl']
+            shop_image_url = form.data['shop_image_url'],
+            owner_id = current_user.id
             )
         db.session.add(new_shop)
         db.session.commit()
@@ -50,7 +57,7 @@ def update_shop(shopId):
             shop.name = form.data['name']
             shop.description = form.data['description']
             shop.ownerId = current_user.id
-            shop.shop_image_url = form.data['imageUrl']
+            shop.shop_image_url = form.data['shop_image_url']
     db.session.commit()
     return shop.to_dict()
 
