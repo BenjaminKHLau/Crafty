@@ -4,6 +4,7 @@ const GET_ALL_SHOPS = "shop/READ"
 const UPDATE_SHOP = "shop/UPDATE"
 const GET_SHOP_BY_ID = "shopId/READ"
 const DELETE_SHOP = "shop/DELETE"
+const DELETE_MERCHY = "merchy/DELETE"
 
 // Action Creators
 const createNewShopACTION = (payload) => {
@@ -30,6 +31,12 @@ const updateShopACTION = (payload) => {
 const deleteShopACTION = (payload) => {
     return {
      type: DELETE_SHOP,
+     payload
+    }
+ }
+export const deleteMerchACTION2 = (payload) => {
+    return {
+     type: DELETE_MERCHY,
      payload
     }
  }
@@ -139,6 +146,17 @@ const ShopsReducer = (state = initialState, action) => {
             delete newState[action.payload]
             return newState;
       	}
+        case DELETE_MERCHY: {
+            newState = { ...state }
+            const {merchId, shopId} = action.payload
+            const merch = newState[shopId].merch
+            const newMerch = merch.filter(merch => {
+               return merch.id !== merchId
+            })
+            newState[shopId].merch = newMerch
+            
+            return newState
+        }
 
     default:
     return state;
