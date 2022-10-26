@@ -32,11 +32,12 @@ function ShopDetailsComponent() {
         .then(() => setIsLoaded(true))
 	}, [dispatch, shopId]);
 
-	const deleteShop = async (e) => {
+	const deleteShop = (e) => {
 		e.preventDefault(e);
-		dispatch(deleteShopThunk(shopId));
+		setIsLoaded(false)
+		dispatch(deleteShopThunk(shopId))
+		.then(() => history.push("/"))
 
-		history.push("/");
 	};
 
 	return (
