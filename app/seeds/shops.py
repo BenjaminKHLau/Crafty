@@ -57,7 +57,7 @@ def seed_shops():
     for i in range(30):
         fake_shop = Shop(
             name=random.choice(shop_names),
-            description=fake.paragraph(nb_sentences=5),
+            description=fake.paragraph(nb_sentences=3),
             shop_image_url=random.choice(images),
             owner_id = random.choice(owners)
         )

@@ -59,7 +59,7 @@ def seed_merch():
         num = random.choice(owners)
         new_merch = Merchandise(
         name=random.choice(shop_names),
-        description=fake.paragraph(nb_sentences=5),
+        description=fake.paragraph(nb_sentences=3),
         merch_image_url=random.choice(images),
         shop_id = num,
         owner_id = num
