@@ -15,7 +15,7 @@ function ShopFormModal() {
 
   return (
     <>
-      <div className='create-shop-button' onClick={() => setShowModal(true)}>Start a Shop</div>
+      <div className='login-signup' onClick={() => setShowModal(true)}>Start a Shop</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ShopFormComponent />

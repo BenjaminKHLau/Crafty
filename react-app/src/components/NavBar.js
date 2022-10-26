@@ -19,11 +19,11 @@ const NavBar = () => {
 				<img src={CraftyLogo} className="CraftyLogo" alt="Crafty's cool logo" />
 			</Link>
     {!user && (<div className="login-signup-container">
-      <div className="login-signup">
+      <div className="login-signup1">
         <LoginFormModal />
       </div>
 
-      <div className="login-signup">
+      <div className="login-signup1">
         <SignupFormModal />
       </div>
     </div>)}
@@ -31,10 +31,10 @@ const NavBar = () => {
 			{user && (
         <div className="logged-in-buttons">
 
-      <div className="login-signup">
+      <div className="login-signup-container">
 				<ShopFormModal />
 			</div>
-			<div className="login-signup">
+			<div className="login-signup-container">
 				<LogoutButton />
 			</div>
         </div>

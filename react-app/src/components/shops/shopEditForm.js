@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateShopThunk, getShopByIdThunk } from "../../store/shop"
+import { updateShopThunk } from "../../store/shop"
 
 
 function ShopEditFormComponent({shopId}){
@@ -9,7 +9,7 @@ function ShopEditFormComponent({shopId}){
     const session = useSelector(state => state.session)
     const allShops = useSelector(state => state.shops)
     const shop = allShops[shopId]
-    console.log("SHOPS IN FORM: ", allShops)
+    // console.log("SHOPS IN FORM: ", allShops)
     
     const [name, setName] = useState(shop.name);
     const [description, setDescription] = useState(shop.description);
@@ -18,7 +18,7 @@ function ShopEditFormComponent({shopId}){
     const [isSubmitted, setIsSubmitted] = useState(false);
     
     const user = session.user ? session.user : null
-    console.log("USER IN FORM: ", user)
+    // console.log("USER IN FORM: ", user)
     
     useEffect(() => {
         const errors = []
@@ -36,15 +36,8 @@ function ShopEditFormComponent({shopId}){
           return;
         }
 
-        let newShop = await dispatch(
-            updateShopThunk({
-              name,
-              description,
-              shop_image_url: image,
-              owner_id: user.id
-            }, shopId)
-            .then(() => getShopByIdThunk(shopId))
-          );
+        let newShop = dispatch(updateShopThunk({name,description,shop_image_url: image,owner_id: user.id}, shopId))
+        // .then(() => getShopByIdThunk(shopId));
       
           if (newShop.errors) setErrors([...Object.values(newShop.errors)])
         //   else history.push(`/shops/${newShop.id}`);

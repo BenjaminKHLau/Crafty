@@ -15,10 +15,10 @@ function MerchDetailsComponent(){
     const merchSelector = useSelector(state => state.merch)
     const shopsSelector = useSelector(state => state.shops)
     const merch = merchSelector[merchId]
-    console.log("MERCH SELECTOR IN MERCH DETAILS: ",merch)
+    // console.log("MERCH SELECTOR IN MERCH DETAILS: ",merch)
     // console.log("SHOPS SELECTOR IN MERCH DETAILS: ",shopsSelector)
     const shop = shopsSelector[merch?.shop_id]
-    console.log("SHOP: ",shop)
+    // console.log("SHOP: ",shop)
 
 
 
