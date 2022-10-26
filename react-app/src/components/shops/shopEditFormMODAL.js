@@ -15,7 +15,7 @@ function EditShopFormModal({ shopId }) {
 
   return (
     <>
-      <div className="edit-delete" onClick={() => setShowModal(true)}>Edit Shop</div>
+      <div className="owner-controls" onClick={() => setShowModal(true)}>Edit Shop</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <ShopEditFormComponent shopId={shopId} />
