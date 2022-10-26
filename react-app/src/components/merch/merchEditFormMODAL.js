@@ -15,7 +15,7 @@ function MerchEditFormModal({merchId}) {
 
   return (
     <>
-      <div className='create-shop-button' onClick={() => setShowModal(true)}>Edit Merchandise</div>
+      <div className='owner-controls' onClick={() => setShowModal(true)}>Edit Merchandise</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <MerchEditFormComponent merchId={merchId}/>

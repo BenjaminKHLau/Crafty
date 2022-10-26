@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import ShopDetailsComponent from './components/shops/shopDetails';
 import ShopsHome from './components/shops/shopHome';
 import MerchDetailsComponent from './components/merch/merchDetails';
+import Footer from './components/footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,7 +50,6 @@ function App() {
         </ProtectedRoute>
 
         <Route path='/' exact={true} >
-          <h1>CRAFTY!!</h1>
           <ShopsHome />
         </Route>
 
@@ -62,6 +62,7 @@ function App() {
         </Route>
 
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

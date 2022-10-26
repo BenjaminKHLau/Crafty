@@ -1,6 +1,7 @@
 .merchdetails-pic {
-    width: 400px;
-
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
 }
 
 .merchinshopcomponent {
@@ -16,4 +17,60 @@
     font-size: 24pt;
     margin-bottom: 40px;
     font-weight: 200;
+}
+.merchdetails-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.merchdetails-pic-container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    width: 800px;
+    height: 600px;
+}
+
+.owner-perms {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 20px;
+}
+
+.owner-controls {
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: 200ms;
+    text-align: center;
+    width:max-content;
+    background-color: rgb(255, 110, 66);
+    color: white;
+}
+
+.merchdetails-store-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: 200;
+    border-radius: 6px;
+    background-color: rgba(241, 114, 69, .4);
+}
+
+.store-name-details {
+    font-size: 18pt;
+}
+
+.click-to-store {
+    /* background-color: rgba(241, 114, 69, .4); */
 }
