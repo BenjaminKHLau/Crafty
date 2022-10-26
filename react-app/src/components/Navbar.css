@@ -8,6 +8,8 @@ nav {
     align-items: center;
     margin-left: 12.5%;
     margin-right: 12.5%;
+    height: 100px;
+    border-bottom: 1px solid lightgrey;
 }
 
 .login-signup-container {
