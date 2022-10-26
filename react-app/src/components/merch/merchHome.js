@@ -12,7 +12,25 @@ function MerchHome(){
     const merchSelector = useSelector(state => state.merch)
     const merchArr = Object.values(merchSelector)
     // console.log("MERCH SELECTED: ",merchArr)
+
+    function shuffle(array) {
+        let counter = array.length;
+        while (counter > 0) {
+            let index = Math.floor(Math.random() * counter);
+            counter--;
+            let temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
     
+        return array;
+    }
+    let shuffled = shuffle(merchArr)
+    // console.log("SHUFFLED?: ", shuffled)
+    
+    if(shuffled.length > 10) shuffled = shuffled.slice(0, 10)
+    // console.log("OVER 10 SHUFFLED?: ", shuffled)
+
 
     useEffect(() => {
         dispatch(getAllMerchThunk())
@@ -24,7 +42,7 @@ function MerchHome(){
     return isLoaded && (
         <div className="merch-card-container">
 
-        {merchArr.map(merch => (
+        {shuffled.map(merch => ( //changed merchArr to shuffle for testing
             <Link to={`/merch/${merch.id}`} key={merch.id}>
                 
             <div className="merch-home" key={merch.id}>
