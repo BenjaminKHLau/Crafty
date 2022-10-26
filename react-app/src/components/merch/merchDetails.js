@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { getAllMerchThunk, deleteMerchThunk } from "../../store/merch";
-import { getAllShopsThunk } from "../../store/shop";
+import { getAllShopsThunk, getShopByIdThunk } from "../../store/shop";
 import sorrykiwi2 from "../pictures/sorrykiwi2.png";
 import "./merchDetails.css";
 import MerchEditFormModal from "./merchEditFormMODAL";
@@ -33,8 +33,8 @@ function MerchDetailsComponent() {
 
 	const deleteMerch = async (e) => {
 		e.preventDefault(e);
-		dispatch(deleteMerchThunk(merchId, merch.shop_id));
-		// .then(() => dispatch(getShopByIdThunk(merch.shop_id)))
+		dispatch(deleteMerchThunk(merchId, merch.shop_id))
+		.then(() => dispatch(getShopByIdThunk(merch.shop_id)))
 
 		history.push(`/shops/${merch.shop_id}`);
 	};
