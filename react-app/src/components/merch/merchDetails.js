@@ -26,6 +26,13 @@ function MerchDetailsComponent() {
 	let owner = false;
 	if (user) owner = merch?.owner_id === user.id;
 
+	const arr = Object.values(merchSelector)
+    const merchArr = arr.filter(merch => merch.shop_id === merchSelector[merchId].shop_id)
+	const uniqueMerch = merchArr.filter(merch => merch.id != merchId)
+	console.log("unique? merchArr: ",merchArr)
+    console.log("unique?: ",uniqueMerch)
+
+
 	useEffect(() => {
 		dispatch(getAllMerchThunk())
 			.then(() => dispatch(getAllShopsThunk()))
@@ -64,6 +71,12 @@ function MerchDetailsComponent() {
 						<Link to={`/shops/${merch.shop_id}`} className="visit-shop">{" "} Visit {shop.name}</Link>{" "}
 					</div>
 					<div className="merchdetails-desc">{merch.description}</div>
+					<div className="protection-container">
+						<div className="protection"><div className="protection2"> Crafty Purchase Protection 
+						<div className="protection3">Shop confidently on Crafty knowing if something goes wrong with an order, we've got your back for all eligible purchases</div></div>
+						</div> 
+
+					</div>
 				</div>
 
 			</div>
@@ -75,8 +88,10 @@ function MerchDetailsComponent() {
 						</div>
 					</div>
 				)}
-				<div className="test">
+				<div className="merchinshopcomponent">
+				<div className="inventory">Looking for something else?</div>
 					<MerchInMerchDetailsComponent merchId={merchId} />
+					{uniqueMerch.length === 0 && (<div className="no-inventory">{shop.name} doesn't have any other merchandise left! Hurry before this is gone too!</div> )}
 				</div>
             </div>
 		)

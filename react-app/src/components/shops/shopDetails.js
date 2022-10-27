@@ -20,6 +20,8 @@ function ShopDetailsComponent() {
 
 	const user = session.user ? session.user : null;
 
+	console.log("SHOP ITEMS: ", shop?.merch)
+	console.log("SHOP ITEMS LENGTH: ", shop?.merch.length)
 	let owner = false;
 	if (user) owner = shop?.owner_id === user.id;
 	// console.log("owner: ", owner);
@@ -87,6 +89,7 @@ function ShopDetailsComponent() {
                 <div className="merchinshopcomponent">
                     <div className="inventory">Browse our Merchandise!</div>
                 <MerchInShopComponent />
+				{shop?.merch.length === 0 && (<div className="no-inventory">{shop.name} has sold out of everything! Better luck next time!</div> )}
                 </div>
 
 			</div>
