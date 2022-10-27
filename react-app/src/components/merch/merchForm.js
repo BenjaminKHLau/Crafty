@@ -21,8 +21,8 @@ function MerchFormComponent({shopId}){
 
     useEffect(() => {
         const errors = []
-        if (name.length < 3) errors.push("Please provide a name between 3-40 characters")
-        if (description.length < 3) errors.push("Please provide a description between 3-255 characters")
+        if (name.length < 3 || name.length > 40) errors.push("Please provide a name between 3-40 characters");
+        if (description.length < 3 || description.length > 255) errors.push("Please provide a description between 3-255 characters");
 
         setErrors(errors)
     }, [name, description]);
