@@ -46,7 +46,7 @@ a {
 .shopcard {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 100%;
     word-break: break-all;
 }
@@ -95,7 +95,7 @@ a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 40%;
+    width: 768px;
     background-color: rgb(244, 239, 233);
     border-radius: 20px;
     height: 316px;
