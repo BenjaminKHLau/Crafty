@@ -169,6 +169,7 @@ a {
     word-break: break-word;
     width: 70%;
     overflow: hidden;
+    max-height: 78px;
 }
 
 .seller-details-pic {

@@ -54,6 +54,7 @@ function ShopFormComponent() {
 	));
 
 	return (
+
 		<form className="login-form" onSubmit={subby}>
 			<div className="title">Create Your Very Own Shop!</div>
 			<div className="errors">{isSubmitted && showErrors}</div>
