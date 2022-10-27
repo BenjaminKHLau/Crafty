@@ -7,11 +7,11 @@
 
 
 # Project Wiki
-* [API Documentation]()
-* [Database Schema]()
-* [Features]()
-* [Redux State Shape]()
-* [Contact Us]()
+* [API Documentation](https://github.com/BenjaminKHLau/Crafty/wiki/API-Documentation)
+* [Database Schema](https://github.com/BenjaminKHLau/Crafty/wiki/Database-Schema)
+* [Features](https://github.com/BenjaminKHLau/Crafty/wiki/Crafty-Features)
+* [Redux State Shape](https://github.com/BenjaminKHLau/Crafty/wiki/Redux-Store-Shape)
+* [Contact Me](https://github.com/BenjaminKHLau/Crafty/wiki/Contact-Me!)
 
 
 # Built With
