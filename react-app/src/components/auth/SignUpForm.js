@@ -21,7 +21,7 @@ const SignUpForm = () => {
 		if (username.length > 20)
 			errors.push("Username must be 1-20 characters long");
 		if (email.length < 5) errors.push("Please provide a valid email");
-		if (email.length > 50) errors.push("Email must be 5-35 characters long");
+		if (email.length > 50) errors.push("Email must be 5-50 characters long");
 		if (password.length < 1) errors.push("Enter a password");
 		if (password !== repeatPassword) errors.push("Passwords must match");
 
