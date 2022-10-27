@@ -6,6 +6,7 @@ import { getAllShopsThunk, getShopByIdThunk } from "../../store/shop";
 import sorrykiwi2 from "../pictures/sorrykiwi2.png";
 import "./merchDetails.css";
 import MerchEditFormModal from "./merchEditFormMODAL";
+import MerchInMerchDetailsComponent from "./mnm";
 
 function MerchDetailsComponent() {
 	const dispatch = useDispatch();
@@ -74,6 +75,9 @@ function MerchDetailsComponent() {
 						</div>
 					</div>
 				)}
+				<div className="test">
+					<MerchInMerchDetailsComponent merchId={merchId} />
+				</div>
             </div>
 		)
 	);

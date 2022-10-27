@@ -9,6 +9,7 @@
     justify-content: center;
     margin-top: 30px;
     flex-direction: column;
+    align-items: center;
 }
 
 .inventory {
@@ -17,6 +18,10 @@
     font-size: 24pt;
     margin-bottom: 40px;
     font-weight: 200;
+    border-top: 1px solid lightgrey;
+    width: 70%;
+    align-items: center;
+    padding-top: 20px;
 }
 .merchdetails-container {
     display: flex;
@@ -97,6 +102,7 @@
     border-radius: 6px;
     background-color: rgba(241, 114, 69, .4);
     max-width: 400px;
+    width: 400px;
 }
 
 .store-name-details {
