@@ -25,6 +25,7 @@ input {
     justify-content: center;
     text-indent: 25px;
     transition-duration: .2s;
+    background-color: antiquewhite;
     /* width: 100%; */
 }
 

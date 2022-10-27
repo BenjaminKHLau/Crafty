@@ -14,6 +14,10 @@ function MerchInMerchDetailsComponent({ merchId }){
     const arr = Object.values(merchSelector)
     const merchArr = arr.filter(merch => merch.shop_id === merchSelector[merchId].shop_id)
 
+    const uniqueMerch = merchArr.filter(merch => merch.id != merchId)
+    // console.log("unique? merchArr: ",merchArr)
+    // console.log("unique?: ",uniqueMerch)
+    // console.log(merchId)
 
     function shuffle(array) {
         let counter = array.length;
@@ -27,7 +31,7 @@ function MerchInMerchDetailsComponent({ merchId }){
     
         return array;
     }
-    let shuffled = shuffle(merchArr)
+    let shuffled = shuffle(uniqueMerch)
     // console.log("SHUFFLED?: ", shuffled)
     
 
@@ -41,7 +45,7 @@ function MerchInMerchDetailsComponent({ merchId }){
 
     return isLoaded && (
         <div className="merch-card-container2">
-<div className="inventory">Looking for something else?</div>
+
 <div className="merch-card-container">
 
         {shuffled.map(merch => ( //changed merchArr to shuffle for testing

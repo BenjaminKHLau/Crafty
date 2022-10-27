@@ -23,6 +23,19 @@
     align-items: center;
     padding-top: 20px;
 }
+
+.no-inventory {
+    display: flex;
+    justify-content: center;
+    font-size: 18pt;
+    margin-bottom: 40px;
+    font-weight: 200;
+    /* border-top: 1px solid lightgrey; */
+    width: 70%;
+    align-items: center;
+    /* padding-top: 20px; */
+}
+
 .merchdetails-container {
     display: flex;
     justify-content: center;
@@ -135,6 +148,12 @@
     margin-top: 10px;
     flex-direction: column;
     align-items: center;
+    font-size: 14pt;
+}
+
+.visit-shop {
+    font-size: 12pt;
+    font-weight: 400;
 }
 
 .merchdetails-desc {
@@ -144,4 +163,34 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
+}
+
+.protection {
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.protection2 {
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14pt;
+    font-weight: 300;
+}
+
+.protection3 {
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12pt;
+    font-weight: 200;
+    margin-top: 10px;
 }
