@@ -60,7 +60,7 @@ function MerchDetailsComponent() {
 					</Link>
 					<div className="click-to-store">
 						Like this product?{" "}
-						<Link to={`/shops/${merch.shop_id}`} className="visit-shop">Visit {shop.name}</Link>{" "}
+						<Link to={`/shops/${merch.shop_id}`} className="visit-shop">{" "} Visit {shop.name}</Link>{" "}
 					</div>
 					<div className="merchdetails-desc">{merch.description}</div>
 				</div>

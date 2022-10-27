@@ -12,6 +12,8 @@ form {
     background-color: #FFF;
     width: 500px;
     padding: 25px;
+    /* opacity: 0.2; */
+    background-image: url("../pictures/dirtblock.png");
 }
 
 input {
@@ -27,15 +29,19 @@ input {
 }
 
 label {
-    color: rgb(0, 0, 0);
     font-size: 15px;
     position: relative;
-    left: 19px;
-    top: 20px;
+    left: 27px;
+    top: 11px;
+    background-color: #0d9a40;
+    width: fit-content;
+    border-radius: 10px;
+    color: white;
+    padding: 2px;
   }
 
 ::placeholder {
-    color: lightgrey;
+    color: black;
 }
 
 .login-button {
@@ -51,8 +57,7 @@ label {
 }
 
 .demo-button {
-    /* border: none; */
-    background-color: #ff9900;
+    background-color: #684715;
     color: #fff;
     border-radius: 5px;
     width: 100%;
@@ -61,8 +66,17 @@ label {
     cursor: pointer;
 }
 
-.error-message {
-    font-size: 12px;
+.error-messages {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ff96a980;
+}
+
+.errors {
+    /* font-size: 12px; */
     font-weight: 300;
     color: #FF0000;
 }
