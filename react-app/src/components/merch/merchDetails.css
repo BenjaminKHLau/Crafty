@@ -34,11 +34,11 @@
 
 .owner-perms {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-direction: column;
     margin-top: 20px;
-    margin-left: 15%;
-    margin-right: 15%;
+    /* margin-left: 15%; */
+    /* margin-right: 15%; */
     margin-bottom: 20px;
     gap: 5px;
 }

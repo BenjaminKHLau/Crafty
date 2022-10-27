@@ -1,5 +1,6 @@
 import "./footer.css";
 import ben from "./pictures/ben.jpg"
+import linkedin from "./pictures/linkedin.png"
 
 function Footer() {
 	return (
@@ -18,8 +19,16 @@ function Footer() {
 								>
 									<img src={ben} className="footer-img" />
 								</a>
-								<div className="fname">Benjamin Lau</div>
+								<a
+									className="aaa"
+									href="https://www.linkedin.com/in/benjaminkhlau/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<img src={linkedin} className="footer-img" />
+								</a>
 							</div>
+								<div className="fname">Crafty is an Etsy inspired application by Benjamin Lau</div>
 						</div>
 					</div>
 				</div>

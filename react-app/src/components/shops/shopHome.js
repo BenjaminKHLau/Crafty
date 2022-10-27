@@ -30,13 +30,10 @@ function ShopsHome() {
                 <div className="inspiration">Need inspiration? Check out these items!</div>
 				<div className="shop-merch-home">
 					<MerchHome />
+						<div className="browse-shops">Browse Shops!</div>
 					<div className="home">
 						{shopsArr.map((shop) => (
-							<Link
-								to={`/shops/${shop.id}`}
-								className="shop-link"
-								key={shop.id}
-							>
+							<Link to={`/shops/${shop.id}`} className="shop-link" key={shop.id}>
 								<ShopCard shop={shop} />
 							</Link>
 						))}
