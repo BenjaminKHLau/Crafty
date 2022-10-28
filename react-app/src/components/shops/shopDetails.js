@@ -71,8 +71,11 @@ function ShopDetailsComponent() {
                                 />
 						</div>
 						<div className="seller-details-container">
+							<div className="seller-wrapper">
+
 							<div className="shop-details-name">{shop.name}</div>
 							<div className="shop-details-desc">{shop.description}</div>
+							</div>
 						</div>
                                 </div>
 					{ owner && (<div className="owner-perms">
