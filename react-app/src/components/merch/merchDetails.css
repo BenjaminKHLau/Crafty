@@ -2,6 +2,15 @@
     width: 800px;
     height: 600px;
     border-radius: 10px;
+    transition-duration: 200ms;
+}
+
+.merchdetails-pic:hover {
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    transition-duration: 200ms;
 }
 
 .merchinshopcomponent {
@@ -54,10 +63,10 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
     /* margin-left: 15%; */
     /* margin-right: 15%; */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     gap: 5px;
 }
 
@@ -116,6 +125,20 @@
     background-color: rgba(241, 114, 69, .4);
     max-width: 400px;
     width: 400px;
+    transition-duration: 200ms;
+}
+
+.merchdetails-store-name:hover {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: 200;
+    border-radius: 6px;
+    background-color: rgba(241, 114, 69, .6);
+    max-width: 400px;
+    width: 400px;
+    transition-duration: 200ms;
+    
 }
 
 .store-name-details {
@@ -130,30 +153,42 @@
     transition-duration: 200ms;
 }
 
-.visit-shop {
-    text-decoration: underline;
-}
 
 .merchdetails-info {
     word-break: break-word;
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 20px;
+    transition-duration: 200ms;
+}
+
+.merchdetails-info:hover {
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    transition-duration: 200ms;
+    font-size: 24pt;
 }
 
 .click-to-store {
     word-break: break-word;
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 20px;
     flex-direction: column;
     align-items: center;
     font-size: 14pt;
 }
 
 .visit-shop {
+    text-decoration: underline;
     font-size: 12pt;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .merchdetails-desc {

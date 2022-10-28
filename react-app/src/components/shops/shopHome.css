@@ -56,10 +56,10 @@ a {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px;
     font-size: 18pt;
     font-weight: 200;
-    max-height: 28%;
+    max-height: 56px;
 }
 
 .shop-card-info-container {
@@ -77,6 +77,7 @@ a {
     font-weight: 300;
     margin: 10px;
     word-break: break-word;
+    max-height: 190px;
 }
 
 .shop-image {
@@ -101,11 +102,13 @@ a {
     height: 316px;
     align-items: center;
     transition-duration: 200ms;
+    box-shadow: 3px 3px 10px grey;
 }
 
 .shop-link:hover {
     background-color: rgb(224, 214, 201);
     transition-duration: 200ms;
+    box-shadow: 0px 0px 8px grey;
 }
 .home {
     display: flex;
@@ -135,6 +138,15 @@ a {
     width: 40%;
     height: 33%;
     border-radius: 8px;
+    transition-duration: 200ms;
+}
+
+.shop-details-pic:hover {
+    width: 40%;
+    height: 33%;
+    border-radius: 8px;
+    box-shadow: 0 0 5px black;
+    transition-duration: 200ms;
 }
 
 .shop-details-container {
@@ -167,23 +179,35 @@ a {
     font-size: 12pt;
     font-weight: 200;
     word-break: break-word;
-    width: 70%;
+    width: 95%;
     overflow: hidden;
     max-height: 78px;
 }
 
 .seller-details-pic {
     /* display: flex; */
-    width: 120px;
-    height: 120px;
-    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    border-radius: 18px;
     border: 1px solid lightblue;
+    transition-duration: 200ms;
+}
+
+.seller-details-pic:hover {
+    /* display: flex; */
+    width: 150px;
+    height: 150px;
+    border-radius: 18px;
+    border: 1px solid lightblue;
+    box-shadow: 0 0 5px lightblue;
+    transition-duration: 200ms;
 }
 
 .seller-pic {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 4px;
+    align-self: center;
 }
 
 .seller-details-container {
@@ -217,8 +241,9 @@ a {
     text-align: center;
     width: 150px;
     background-color: rgb(0, 212, 32);
-    /* color: white; */
+    color: white;
     height: 20px;
+    /* background-image: url("../pictures/dirtblock.png"); */
 }
 
 .add-merch:hover {

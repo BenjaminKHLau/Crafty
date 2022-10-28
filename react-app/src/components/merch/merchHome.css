@@ -23,6 +23,7 @@
     height: 170px;
     border-radius: 8px;
     transition-duration: 200ms;
+    box-shadow: 3px 3px 5px grey;
 }
 
 .merch-home-image:hover {
@@ -42,13 +43,14 @@
     background-color: aliceblue;
     width: fit-content;
     max-width: 230px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 30px;
     word-break: break-all;
     overflow: hidden;
     box-sizing: border-box;
     max-height: 25px;
     font-weight: 300;
+    align-items: center;
 }
 
 .merch-home-image-container {
