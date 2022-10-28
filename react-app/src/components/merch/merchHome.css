@@ -24,6 +24,7 @@
     border-radius: 8px;
     transition-duration: 200ms;
     box-shadow: 3px 3px 5px grey;
+    background-color: white;
 }
 
 .merch-home-image:hover {
