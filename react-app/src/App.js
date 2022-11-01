@@ -12,6 +12,7 @@ import ShopDetailsComponent from './components/shops/shopDetails';
 import ShopsHome from './components/shops/shopHome';
 import MerchDetailsComponent from './components/merch/merchDetails';
 import Footer from './components/footer';
+import UserProfileComponent from './components/profile/profile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,13 +46,13 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
 
+        <ProtectedRoute path='/profile' exact={true} >
+          <UserProfileComponent />
+        </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-
-        <Route path='/' exact={true} >
-          <ShopsHome />
-        </Route>
 
         <Route path='/shops/:shopId'>
           <ShopDetailsComponent />
@@ -61,6 +62,10 @@ function App() {
           <MerchDetailsComponent />
         </Route>
 
+        <Route path='/' exact={true} >
+          <ShopsHome />
+        </Route>
+        
       </Switch>
       <Footer />
     </BrowserRouter>
