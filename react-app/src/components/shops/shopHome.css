@@ -65,7 +65,7 @@ a {
 .shop-card-info-container {
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 274px;
     overflow: hidden;
     max-height: 300px;
 }
@@ -96,7 +96,7 @@ a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 768px;
+    width: 700px;
     background-color: rgb(244, 239, 233);
     border-radius: 20px;
     height: 316px;
