@@ -18,27 +18,31 @@ const NavBar = () => {
 			<Link to="/">
 				<img src={CraftyLogo} className="CraftyLogo" alt="Crafty's cool logo" />
 			</Link>
-    {!user && (<div className="login-signup-container">
-      <div className="login-signup1">
-        <LoginFormModal />
-      </div>
+			{!user && (
+				<div className="login-signup-container">
+					<div className="login-signup1">
+						<LoginFormModal />
+					</div>
 
-      <div className="login-signup1">
-        <SignupFormModal />
-      </div>
-    </div>)}
+					<div className="login-signup1">
+						<SignupFormModal />
+					</div>
+				</div>
+			)}
 
 			{user && (
-        <div className="logged-in-buttons">
-
-      <div className="login-signup-container">
-				<ShopFormModal />
-			</div>
-			<div className="login-signup-container">
-				<LogoutButton />
-			</div>
-        </div>
-      )}
+				<div className="logged-in-buttons">
+					<div className="login-signup-container">
+						<ShopFormModal />
+					</div>
+					<div className="login-signup-container">
+						<Link to="/profile" className="login-signup">Profile</Link>
+					</div>
+					<div className="login-signup-container">
+						<LogoutButton />
+					</div>
+				</div>
+			)}
 		</nav>
 	);
 };

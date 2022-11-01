@@ -17,7 +17,7 @@ function Footer() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<img src={ben} className="footer-img" />
+									<img src={ben} className="footer-img" alt="github"/>
 								</a>
 								<a
 									className="aaa"
@@ -25,7 +25,7 @@ function Footer() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<img src={linkedin} className="footer-img" />
+									<img src={linkedin} className="footer-img" alt="linkedin"/>
 								</a>
 							</div>
 								<div className="fname">Crafty is an Etsy inspired application by Benjamin Lau</div>
