@@ -227,6 +227,7 @@ a {
 
 .seller-left {
     display: flex;
+    width: 100%;
 }
 
 .add-merch {
