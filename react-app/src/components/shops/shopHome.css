@@ -136,15 +136,13 @@ a {
 }
 
 .shop-details-pic {
-    width: 40%;
-    height: 33%;
+    width: 750px;
+    height: 475px;
     border-radius: 8px;
     transition-duration: 200ms;
 }
 
 .shop-details-pic:hover {
-    width: 40%;
-    height: 33%;
     border-radius: 8px;
     box-shadow: 0 0 5px black;
     transition-duration: 200ms;

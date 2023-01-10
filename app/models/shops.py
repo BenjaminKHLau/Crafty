@@ -14,6 +14,7 @@ class Shop(db.Model):
     
     # RELATIONSHIPS
     merch = db.relationship("Merchandise", back_populates="shop", cascade="all, delete-orphan")
+    reviews = db.relationship("ShopReview", back_populates="shop", cascade="all, delete-orphan")
     
     def to_dict(self):
         response = {
