@@ -29,8 +29,8 @@ function MerchDetailsComponent() {
 	const arr = Object.values(merchSelector)
     const merchArr = arr.filter(merch => merch.shop_id === merchSelector[merchId].shop_id)
 	const uniqueMerch = merchArr.filter(merch => merch.id != merchId)
-	console.log("unique? merchArr: ",merchArr)
-    console.log("unique?: ",uniqueMerch)
+	// console.log("unique? merchArr: ",merchArr)
+    // console.log("unique?: ",uniqueMerch)
 
 
 	useEffect(() => {

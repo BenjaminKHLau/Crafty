@@ -15,7 +15,7 @@ function ShopsHome() {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const shopsArr = Object.values(allShops);
 	// console.log("ALL SHOPS: ", allShops)
-	console.log("ALL MERCH: ", allMerch);
+	// console.log("ALL MERCH: ", allMerch);
 	// console.log("Shops Array", shopsArr)
 
 	useEffect(() => {
