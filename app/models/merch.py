@@ -14,6 +14,7 @@ class Merchandise(db.Model):
     
     # RELATIONSHIPS
     shop = db.relationship("Shop", back_populates="merch")
+    merch_review = db.relationship("MerchReview", back_populates="merch", cascade="all, delete-orphan")
     # review = relationship("Review", back_populates="business", cascade="all, delete-orphan")
     
     

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getAllShopsThunk } from "../../store/shop";
 import ShopCard from "../shops/shopCard";
 import "./profile.css";
+import UserMerchReviews from "../merch/userMRs";
 
 function UserProfileComponent() {
 	const dispatch = useDispatch();
@@ -14,11 +15,13 @@ function UserProfileComponent() {
 	const allShops = Object.values(shopSelector);
 	let user = session?.user ? session?.user : null;
 
-	const userShops = allShops.filter((shop) => user.id == shop.owner_id);
+	const userShops = allShops.filter((shop) => user.id === shop.owner_id);
 
-	// console.log(allShops);
-	// console.log("user: ", user);
-	// console.log("user shops: ", userShops);
+	// USER REVIEWS
+	const reviewsSelector = useSelector(state => state.merch_reviews)
+	const reviewsArr = Object.values(reviewsSelector)
+	const userReviews = reviewsArr.filter(review => user.id === review.author_id)
+	// console.log("review profile select", userReviews)
 
 	useEffect(() => {
 		dispatch(getAllShopsThunk()).then(() => setIsLoaded(true));
@@ -36,6 +39,8 @@ function UserProfileComponent() {
 						</Link>
 					))}
 				</div>{userShops.length === 0 && (<div className="no-inventory">You don't have any shops...</div> )}
+				<div className="inventory">Products You've Reviewed</div>
+				<UserMerchReviews user={user} reviews={userReviews}/>
 			</div>
 		)
 	);

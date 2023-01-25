@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.shop_routes import shops_routes
 from .api.merch_routes import merch_routes
+from .api.merch_review_routes import merch_rev_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,8 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(shops_routes, url_prefix='/api/shops')
 app.register_blueprint(merch_routes, url_prefix='/api/merch')
+app.register_blueprint(merch_rev_routes, url_prefix='/api/merch_rev')
+
 
 
 db.init_app(app)
