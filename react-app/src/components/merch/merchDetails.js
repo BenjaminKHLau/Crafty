@@ -7,6 +7,7 @@ import sorrykiwi2 from "../pictures/sorrykiwi2.png";
 import "./merchDetails.css";
 import MerchEditFormModal from "./merchEditFormMODAL";
 import MerchInMerchDetailsComponent from "./mnm";
+import MerchReviewComponent from "./merchReview";
 
 function MerchDetailsComponent() {
 	const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function MerchDetailsComponent() {
 
 	const arr = Object.values(merchSelector)
     const merchArr = arr.filter(merch => merch.shop_id === merchSelector[merchId].shop_id)
-	const uniqueMerch = merchArr.filter(merch => merch.id != merchId)
+	const uniqueMerch = merchArr.filter(merch => merch.id !== +merchId)
 	// console.log("unique? merchArr: ",merchArr)
     // console.log("unique?: ",uniqueMerch)
 
@@ -76,6 +77,9 @@ function MerchDetailsComponent() {
 						<div className="protection3">Shop confidently on Crafty knowing if something goes wrong with an order, we've got your back for all eligible purchases</div></div>
 						</div> 
 
+					</div>
+					<div className="review-component">
+						<MerchReviewComponent merchId={merchId} />
 					</div>
 				</div>
 

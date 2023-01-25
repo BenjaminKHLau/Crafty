@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import MerchReducer from './merch';
 import session from './session'
 import ShopsReducer from './shop';
+import MerchRevReducer from './merchReview';
 
 const rootReducer = combineReducers({
   session,
   shops: ShopsReducer,
-  merch: MerchReducer
+  merch: MerchReducer,
+  merch_reviews: MerchRevReducer
 });
 
 
