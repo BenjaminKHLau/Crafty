@@ -8,6 +8,7 @@ import "./merchDetails.css";
 import MerchEditFormModal from "./merchEditFormMODAL";
 import MerchInMerchDetailsComponent from "./mnm";
 import MerchReviewComponent from "./merchReview";
+import MerchRevFormModal from "./merchReviewMODAL";
 
 function MerchDetailsComponent() {
 	const dispatch = useDispatch();
@@ -79,7 +80,8 @@ function MerchDetailsComponent() {
 
 					</div>
 					<div className="review-component">
-						<MerchReviewComponent merchId={merchId} />
+						{/* <MerchReviewComponent merchId={merchId} /> */}
+						<MerchRevFormModal merchId={merchId} />
 					</div>
 				</div>
 

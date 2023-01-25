@@ -65,47 +65,46 @@ export const addMRThunk = (review) => async dispatch => {
 
   if (response.ok) {
     const newReview = await response.json()
-    console.log("newReview ADD THUNK: ", newReview)
+    // console.log("newReview ADD THUNK: ", newReview)
     dispatch(createMRACTION(newReview))
     return newReview
   }
   return response.json()
 }
 
-// export const updateMerchThunk = (payload, merchId) => async dispatch => {
-//     const response = await fetch(`/api/merch/${merchId}`, {
-//         method: "PUT",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(payload)
-//     });
-//     if (response.ok) {
-//         const merchy = await response.json();
-//         dispatch(updateMerchACTION(merchy))
-//     }
-//     return response
-// }
+export const updateMRThunk = (payload, reviewId) => async dispatch => {
+    const response = await fetch(`/api/merch_rev/${reviewId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+    if (response.ok) {
+        const merchy = await response.json();
+        dispatch(updateMRACTION(merchy))
+    }
+    return response
+}
 
-// export const getMerchByIdThunk = (merchId) => async dispatch => {
-//     const response = await fetch(`/api/merch/${merchId}`, {
-//         method: "GET"
-//     })
-//     if (response.ok) {
-//         const merch = await response.json();
-//         dispatch(getMerchByIdACTION(merch))
-//         return merch;
-//     }
-// }
+export const getMRByIdThunk = (reviewId) => async dispatch => {
+    const response = await fetch(`/api/merch_rev/${reviewId}`, {
+        method: "GET"
+    })
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(getMRByIdACTION(review))
+        return review;
+    }
+}
 
-// export const deleteMerchThunk = (merchId, shopId) => async dispatch => {
-//     const response = await fetch(`/api/merch/${merchId}`, {
-//         method: "DELETE"
-//     });
+export const deleteMRThunk = (reviewId) => async dispatch => {
+    const response = await fetch(`/api/merch_rev/${reviewId}`, {
+        method: "DELETE"
+    });
 
-//     if (response.ok) {
-//         dispatch(deleteMerchACTION(merchId))
-//         dispatch(deleteMerchACTION2({merchId, shopId}))
-//     }
-// }
+    if (response.ok) {
+        dispatch(deleteMRACTION(reviewId))
+    }
+}
 
 
 // // REDUCER UPDATES STATE
@@ -124,21 +123,21 @@ const MerchRevReducer = (state = initialState, action) => {
         	newState[action.payload.id] = action.payload
             return newState;
         }
-        // case UPDATE_ITEM: {
-        // 	newState = {...state}
-        // 	newState[action.payload.id] = action.payload
-        //     return newState;
-        // }
-        // case GET_ITEM_BY_ID: {
-        // 	newState = {...state}
-        // 	newState[action.payload.id] = action.payload
-        //     return newState;
-        // }
-        // case DELETE_ITEM: {
-        //     newState = { ...state }
-        //     delete newState[action.payload]
-        //     return newState;
-      	// }
+        case UPDATE_MR: {
+        	newState = {...state}
+        	newState[action.payload.id] = action.payload
+            return newState;
+        }
+        case GET_MR_BY_ID: {
+        	newState = {...state}
+        	newState[action.payload.id] = action.payload
+            return newState;
+        }
+        case DELETE_MR: {
+            newState = { ...state }
+            delete newState[action.payload]
+            return newState;
+      	}
 
     default:
     return state;
