@@ -13,7 +13,7 @@ const createMRACTION = (payload) => {
     }
  }
 
- const getMRACTION = (payload) => {
+const getMRACTION = (payload) => {
      return {
      type: GET_ALL_MR,
      payload
@@ -54,23 +54,23 @@ export const getAllMRThunk = () => async dispatch => {
     return data
 }
 
-// export const addMerchThunk = (merch) => async dispatch => {
-//   const response = await fetch(`/api/merch/`, {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(merch)
-//   })
+export const addMRThunk = (review) => async dispatch => {
+  const response = await fetch(`/api/merch_rev/`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(review)
+  })
 
-//   if (response.ok) {
-//     const newMerch = await response.json()
-//     console.log("newMerch ADD THUNK: ", newMerch)
-//     dispatch(createNewMerchACTION(newMerch))
-//     return newMerch
-//   }
-//   return response.json()
-// }
+  if (response.ok) {
+    const newReview = await response.json()
+    console.log("newReview ADD THUNK: ", newReview)
+    dispatch(createMRACTION(newReview))
+    return newReview
+  }
+  return response.json()
+}
 
 // export const updateMerchThunk = (payload, merchId) => async dispatch => {
 //     const response = await fetch(`/api/merch/${merchId}`, {
@@ -119,11 +119,11 @@ const MerchRevReducer = (state = initialState, action) => {
             newState = {...action.payload}
             return newState
         }
-      	// case CREATE_NEW_ITEM: {
-        // 	newState = {...state}
-        // 	newState[action.payload.id] = action.payload
-        //     return newState;
-        // }
+      	case CREATE_NEW_MR: {
+        	newState = {...state}
+        	newState[action.payload.id] = action.payload
+            return newState;
+        }
         // case UPDATE_ITEM: {
         // 	newState = {...state}
         // 	newState[action.payload.id] = action.payload

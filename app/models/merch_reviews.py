@@ -7,9 +7,9 @@ class MerchReview(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     review = db.Column(db.String())
     rating = db.Column(db.Integer(), nullable=False)
-    author_id = db.Column(db.Integer(), nullable=False)
+    author_id = db.Column(db.Integer())
     
-    merch_id = db.Column(db.Integer, db.ForeignKey("merch.id"), nullable=False)
+    merch_id = db.Column(db.Integer(), db.ForeignKey("merch.id"), nullable=False)
     # Relationships
     merch = db.relationship("Merchandise", back_populates="merch_review")
     
@@ -18,7 +18,8 @@ class MerchReview(db.Model):
             "id": self.id,
             "review": self.review,
             "rating": self.rating,
-            "author_id": self.author_id
+            "author_id": self.author_id,
+            "merch_id": self.merch_id
         }
 
         return response

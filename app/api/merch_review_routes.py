@@ -27,14 +27,16 @@ def new_review():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_rev = MerchReview(
-            id = form.data['id'],
+            # id = form.data['id'],
+            merch_id = form.data['merch_id'],
             review = form.data['review'],
             rating = form.data['rating'],
-            author_id = form.data['author_id']
+            author_id = current_user.id
         )
         db.session.add(new_rev)
         db.session.commit()
         return jsonify(new_rev.to_dict()), 200
+    else: return {"errors": form.errors}, 401
     
     
 # UPDATE
