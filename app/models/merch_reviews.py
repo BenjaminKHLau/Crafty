@@ -5,7 +5,7 @@ class MerchReview(db.Model):
     __tablename__ = "merch_reviews"
     
     id = db.Column(db.Integer, primary_key = True)
-    review = db.Column(db.String())
+    review = db.Column(db.String(240))
     rating = db.Column(db.Integer(), nullable=False)
     author_id = db.Column(db.Integer())
     

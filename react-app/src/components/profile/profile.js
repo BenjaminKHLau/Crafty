@@ -5,6 +5,8 @@ import { getAllShopsThunk } from "../../store/shop";
 import ShopCard from "../shops/shopCard";
 import "./profile.css";
 import UserMerchReviews from "../merch/userMRs";
+import { getAllMRThunk } from "../../store/merchReview";
+import { getAllMerchThunk } from "../../store/merch";
 
 function UserProfileComponent() {
 	const dispatch = useDispatch();
@@ -24,7 +26,10 @@ function UserProfileComponent() {
 	// console.log("review profile select", userReviews)
 
 	useEffect(() => {
-		dispatch(getAllShopsThunk()).then(() => setIsLoaded(true));
+		dispatch(getAllShopsThunk())
+		.then(() => dispatch(getAllMRThunk()))
+		.then(() => dispatch(getAllMerchThunk()))
+		.then(() => setIsLoaded(true))
 	}, [dispatch]);
 
 	return (
