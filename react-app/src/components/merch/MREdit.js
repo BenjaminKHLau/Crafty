@@ -1,21 +1,28 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from "react-router-dom";
-import { addMRThunk, getAllMRThunk } from "../../store/merchReview";
+import { useHistory } from "react-router-dom";
 
-function MerchReviewComponent({ merchId }) {
+
+import { getAllMRThunk, updateMRThunk } from "../../store/merchReview";
+
+function MerchReviewEditComponent({ reviewId, merchId, setShowModal }) {
 	// console.log(merchId)
-	const history = useHistory()
 	const dispatch = useDispatch();
-	const [review, setReview] = useState("");
-	const [rating, setRating] = useState(5);
+
+    const reviews = useSelector(state => state.merch_reviews)
+    const specificReview = reviews[reviewId]
+
+	const [review, setReview] = useState(specificReview.review);
+	const [rating, setRating] = useState(specificReview.rating);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [errors, setErrors] = useState([]);
 	const session = useSelector((state) => state.session);
 	let userId = session.user ? session.user.id : null;
-	// console.log("merch session", session.user)
-	// console.log("user", userId)
+
+    // console.log("edit review comp", reviews)
+    // console.log("specific", specificReview)
+
 
 	useEffect(() => {
 		setIsLoaded(true);
@@ -40,14 +47,17 @@ function MerchReviewComponent({ merchId }) {
 		}
 
 		let newReview = await dispatch(
-			addMRThunk({
+			updateMRThunk({
 				review,
 				rating,
 				merch_id: merchId,
 				author_id: userId,
-			})
+			}, reviewId)
 		);
-			history.push(`/profile`)
+		// return newReview
+        if (newReview){
+            setShowModal(false)
+        }
 		// console.log("submitted review", newReview);
 	}
 
@@ -60,7 +70,7 @@ function MerchReviewComponent({ merchId }) {
 	return (
 		isLoaded && (
 			<form onSubmit={handleSubmit}>
-				<h2 className="title">Review This Product!</h2>
+				<h2 className="title">Edit Review</h2>
 				<ul className="errors">{isSubmitted && showErrors}</ul>
 				<label className="form-stuff">Review</label>
 				<input
@@ -99,4 +109,4 @@ function MerchReviewComponent({ merchId }) {
 	);
 }
 
-export default MerchReviewComponent;
+export default MerchReviewEditComponent;

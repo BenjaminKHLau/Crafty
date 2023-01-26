@@ -5,15 +5,19 @@ import MerchRevCard from "./merchRevCard";
 import "./userMerchRev.css"
 
 function UserMerchReviews({user, reviews}){
-    console.log(reviews)
+    // console.log(reviews)
     
 
     return(
         <div className="merch-rev-user">
             {reviews.map(review => (
-                <Link to={`/merch/${review.merch_id}`} className="merch-rev-link">
+                
+                    <div>
+
                     <MerchRevCard user={user} review={review} />
-                </Link>
+                    </div>
+
+
             ))}
         </div>
     )

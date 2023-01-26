@@ -62,6 +62,12 @@
 
 .merch-rev-2 {
     display: flex;
+    word-break: break-all;
+    border: 1px solid yellowgreen;
+    /* flex-wrap: wrap; */
+    width: 297px;
+    /* overflow-wrap: break-all; */
+    text-overflow: hidden;
     /* border: 1px solid green; */
     /* flex-direction: column; */
 }
@@ -69,5 +75,15 @@
 .merch-rev-3 {
     display: flex;
     flex-direction: column;
-    text-indent: 10px;
+    /* text-indent: 10px; */
+    flex-wrap: wrap;
+    border: 1px solid red;
+    min-height: 280px;
+    text-overflow: hidden;
+    /* overflow-wrap: break-all; */
+}
+
+.merch-rev-link {
+    display: flex;
+    flex-wrap: wrap;
 }
