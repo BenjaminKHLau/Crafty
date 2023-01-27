@@ -4,18 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 // import sorrykiwi2 from "../pictures/sorrykiwi2.png";
 // import MerchReviewEditComponent from "./MREdit";
 import MREditFormModal from "./reviewEditMODAL";
-import { deleteMRThunk, getAllMRThunk} from "../../store/merchReview";
+import { deleteMRThunk, getAllMRThunk } from "../../store/merchReview";
 
 function MerchRevCard({ user, review }) {
 	const merch = useSelector((state) => state.merch);
-    const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-    const deleteReview = async (e) => {
+	const deleteReview = async (e) => {
 		e.preventDefault(e);
-		dispatch(deleteMRThunk(review.id))
-        .then(() => dispatch(getAllMRThunk()))
+		dispatch(deleteMRThunk(review.id)).then(() => dispatch(getAllMRThunk()));
 	};
-
 
 	return (
 		<div className="merch-rev-container">
@@ -29,13 +27,15 @@ function MerchRevCard({ user, review }) {
 				</div>
 				<div className="merch-rev-3">
 					<div className="merch-rev-2">Rated: {review.rating}</div>
-					{review.review && (<div className="merch-rev-2">Review: {review.review}</div>)}
+					{review.review && (
+						<div className="merch-rev-2">Review: {review.review}</div>
+					)}
 				</div>
+			<div className="MR-stuff">
+				<MREditFormModal reviewId={review.id} merchId={review.merch_id} />
+				<div className="MRDelete" onClick={(e) => deleteReview(e)}>❌</div>
 			</div>
-            <MREditFormModal reviewId={review.id} merchId={review.merch_id}/>
-            <div className="owner-controls" onClick={(e) => deleteReview(e)}>
-							Delete Review
-						</div>
+			</div>
 		</div>
 	);
 }

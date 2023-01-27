@@ -15,7 +15,7 @@ function MREditFormModal({reviewId, merchId}) {
 
   return (
     <>
-      <div className='add-merch' onClick={() => setShowModal(true)}>Edit Review</div>
+      <div className='MREdit-modal' onClick={() => setShowModal(true)}>📝</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <MerchReviewEditComponent reviewId={reviewId} merchId={merchId} setShowModal={setShowModal}/>

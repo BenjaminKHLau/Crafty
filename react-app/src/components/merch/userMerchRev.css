@@ -63,7 +63,8 @@
 .merch-rev-2 {
     display: flex;
     word-break: break-all;
-    border: 1px solid yellowgreen;
+    padding-left: 10px;
+    /* border: 1px solid yellowgreen; */
     /* flex-wrap: wrap; */
     width: 297px;
     /* overflow-wrap: break-all; */
@@ -77,7 +78,7 @@
     flex-direction: column;
     /* text-indent: 10px; */
     flex-wrap: wrap;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     min-height: 280px;
     text-overflow: hidden;
     /* overflow-wrap: break-all; */
@@ -86,4 +87,37 @@
 .merch-rev-link {
     display: flex;
     flex-wrap: wrap;
+}
+
+.MR-stuff {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -56px;
+    left: 276px;
+    gap: 3px;
+}
+
+.MREdit-modal {
+        /* border: 1px solid #0088ff; */
+        border-radius: 7px;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-color: #00a700;
+        cursor: pointer;
+}
+
+.MRDelete {
+        /* border: 1px solid #0088ff; */
+        border-radius: 7px;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-color: #9e5f00;
+        cursor: pointer;
 }
