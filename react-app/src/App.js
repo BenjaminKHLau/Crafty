@@ -13,6 +13,7 @@ import ShopsHome from './components/shops/shopHome';
 import MerchDetailsComponent from './components/merch/merchDetails';
 import Footer from './components/footer';
 import UserProfileComponent from './components/profile/profile';
+import Cart from './components/shoppingCart/shoppingCart';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,9 +51,14 @@ function App() {
           <UserProfileComponent />
         </ProtectedRoute>
 
+        <ProtectedRoute path='/cart' exact={true} >
+          <Cart />
+        </ProtectedRoute>
+        
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
 
         <Route path='/shops/:shopId'>
           <ShopDetailsComponent />

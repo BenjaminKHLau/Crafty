@@ -16,6 +16,7 @@ class Merchandise(db.Model):
     shop = db.relationship("Shop", back_populates="merch")
     merch_review = db.relationship("MerchReview", back_populates="merch", cascade="all, delete-orphan")
     # review = relationship("Review", back_populates="business", cascade="all, delete-orphan")
+    cart_items = db.relationship("Cart", back_populates="merch")
     
     
     def to_dict(self):

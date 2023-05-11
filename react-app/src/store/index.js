@@ -4,12 +4,14 @@ import MerchReducer from './merch';
 import session from './session'
 import ShopsReducer from './shop';
 import MerchRevReducer from './merchReview';
+import CartReducer from './cart';
 
 const rootReducer = combineReducers({
   session,
   shops: ShopsReducer,
   merch: MerchReducer,
-  merch_reviews: MerchRevReducer
+  merch_reviews: MerchRevReducer,
+  cart: CartReducer
 });
 
 
