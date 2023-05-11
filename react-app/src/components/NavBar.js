@@ -39,6 +39,9 @@ const NavBar = () => {
 						<Link to="/profile" className="login-signup">Profile</Link>
 					</div>
 					<div className="login-signup-container">
+						<Link to="/cart" className="login-signup">Cart</Link>
+					</div>
+					<div className="login-signup-container">
 						<LogoutButton />
 					</div>
 				</div>

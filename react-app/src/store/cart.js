@@ -37,17 +37,26 @@ export function readCartACTION(payload) {
   };
 }
 
+
+export function getCartThunk(){
+  return async dispatch => {
+    const response = await fetch('/api/cart/')
+    const data = await response.json()
+    dispatch(readCartACTION(data))
+  }
+}
+
 const initialState = {
-  items: [],
   cart: [],
 };
 
 function CartReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CART:
+      console.log(action.payload, "ACTION PAYLOAD GET CART" )
         return {
             ...state,
-            items: action.payload
+            cart: [...action.payload]
         }
     case ADD_TO_CART:
       return {

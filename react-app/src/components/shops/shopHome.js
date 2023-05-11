@@ -6,6 +6,7 @@ import { getAllMerchThunk } from "../../store/merch";
 import ShopCard from "./shopCard";
 import "./shopHome.css";
 import MerchHome from "../merch/merchHome";
+import { getCartThunk } from "../../store/cart";
 
 function ShopsHome() {
 	const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function ShopsHome() {
 	useEffect(() => {
 		dispatch(getAllShopsThunk())
 			.then(() => dispatch(getAllMerchThunk()))
+			.then(() => dispatch(getCartThunk()))
 			.then(() => setIsLoaded(true));
 	}, [dispatch]);
 
