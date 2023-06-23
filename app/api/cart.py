@@ -22,6 +22,7 @@ cart_routes = Blueprint('cart', __name__)
 def get_cart():
     items = Cart.query.join(Merchandise).add_columns(Merchandise.id, Merchandise.name).all()
     return jsonify([{'id': item.id, 'name': item.name} for item in items])
+    # return [{'id': item.id, 'name': item.name} for item in items]
 
 @cart_routes.route('/', methods=['POST'])
 @login_required
