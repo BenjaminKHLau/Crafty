@@ -22,7 +22,7 @@ function ShopsHome() {
 	useEffect(() => {
 		dispatch(getAllShopsThunk())
 			.then(() => dispatch(getAllMerchThunk()))
-			.then(() => dispatch(getCartThunk()))
+			// .then(() => dispatch(getCartThunk()))
 			.then(() => setIsLoaded(true));
 	}, [dispatch]);
 
