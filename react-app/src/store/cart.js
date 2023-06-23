@@ -40,7 +40,7 @@ export function readCartACTION(payload) {
 
 export function getCartThunk(){
   return async dispatch => {
-    const response = await fetch('/api/cart')
+    const response = await fetch('/api/cart/')
     const data = await response.json()
     dispatch(readCartACTION(data))
   }
