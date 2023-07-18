@@ -1,0 +1,16 @@
+#cart {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cart table {
+    width: 50%;
+}
+
+#cart th,
+#cart td {
+    padding: 10px;
+    text-align: center;
+}

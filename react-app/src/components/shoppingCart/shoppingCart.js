@@ -1,45 +1,57 @@
-import { useEffect, useState } from "react"
-import {deleteFromCartACTION, readCartACTION, addToCartACTION, getCartThunk} from "../../store/cart"
-import {useDispatch, useSelector} from "react-redux"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFromCartThunk, getCartThunk } from "../../store/cart";
+import "./shoppingCart.css"
+import { Link } from "react-router-dom";
+function Cart() {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-// const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart")) || "[]"
+  useEffect(() => {
+    dispatch(getCartThunk()).then(() => setIsLoaded(true));
+  }, [dispatch]);
 
-function Cart(){
-    const dispatch = useDispatch()
-    // const items = useSelector(state => state.items)
-    const cart = useSelector(state => state.cart)
-    // const cart = useSelector(state => state)
-    const [isLoaded, setIsLoaded] = useState(false)
-    console.log("CART", cart)
+  const removeFromCart = (item) => {
+    dispatch(deleteFromCartThunk(item.id));
+  };
 
-    useEffect(()=>{
-        dispatch(getCartThunk())
-        setIsLoaded(true)
-    },[dispatch])
+  const removeAllItems = () => {
+    cart.forEach((item) => {
+      dispatch(deleteFromCartThunk(item.id));
+    });
+  };
 
-    // const [cart, setCart] = useState(cartFromLocalStorage)
-    // // const [page, setPage] = useState()
+  return isLoaded && (
+    <section id="cart">
+      <h1>Your Shopping Cart</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map((item) => (
+            <tr key={item.id}>
+              <td>
+                <Link to={`/merch/${item.id}`}>
+                {item.name}
+                </Link>
 
-    // useEffect(()=>{
-    //     localStorage.setItem("cart", JSON.stringify(cart))
-    // },[cart])
+                </td>
 
-
-
-    return isLoaded && (
-        <>
-        <h1>Your Shopping Cart</h1>
-        {/* <div>{cart.map(item => (
-            <div>{item}</div>
-        ))}</div> */}
-    <div>{cart?.cart.map(item => (
-        item.name
-    ))}</div>
-        </>
-
-    )
-
-
+              <td>
+                <button className="" onClick={() => removeFromCart(item)}>Remove</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button className="login-signup" onClick={removeAllItems}>Checkout</button>
+    </section>
+  );
 }
 
 export default Cart;

@@ -24,22 +24,50 @@ def get_cart():
     return jsonify([{'id': item.id, 'name': item.name} for item in items])
 
 
-@cart_routes.route('/', methods=['POST'])
+# @cart_routes.route('/add', methods=['POST'])
+# @login_required
+# def add_to_cart():
+#     data = request.get_json()
+#     item_id = data.get('id')
+#     item = Merchandise.query.get_or_404(item_id)
+#     cart_item = Cart(merch=item)
+#     db.session.add(cart_item)
+#     db.session.commit()
+#     return jsonify({'message': f'{item.name} added to cart successfully'})
+
+@cart_routes.route('/add', methods=['POST'])
 @login_required
 def add_to_cart():
     data = request.get_json()
-    item_id = data.get('merch_id')
+    item_id = data.get('id')
     item = Merchandise.query.get_or_404(item_id)
+
+    cart_item = Cart.query.filter_by(merch_id=item_id).first()
+    if cart_item:
+        return jsonify({'message': 'Item is already in the cart'})
+
     cart_item = Cart(merch=item)
     db.session.add(cart_item)
     db.session.commit()
     return jsonify({'message': f'{item.name} added to cart successfully'})
 
 
+# @cart_routes.route('/<int:item_id>', methods=['DELETE'])
+# @login_required
+# def remove_from_cart(item_id):
+#     cart_item = Cart.query.filter_by(merch_id=item_id).first_or_404()
+#     db.session.delete(cart_item)
+#     db.session.commit()
+#     return jsonify({'message': f'Merchandise {item_id} removed from cart successfully'})
+
 @cart_routes.route('/<int:item_id>', methods=['DELETE'])
 @login_required
 def remove_from_cart(item_id):
-    cart_item = Cart.query.filter_by(merch_id=item_id).first_or_404()
-    db.session.delete(cart_item)
-    db.session.commit()
-    return jsonify({'message': f'Merchandise {item_id} removed from cart successfully'})
+    cart_item = Cart.query.filter_by(merch_id=item_id).first()
+
+    if cart_item:
+        db.session.delete(cart_item)
+        db.session.commit()
+        return jsonify({'message': f'Merchandise {item_id} removed from cart successfully'})
+    else:
+        return jsonify({'message': 'Item not found in the cart'})
