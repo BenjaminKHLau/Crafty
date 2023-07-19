@@ -50,12 +50,13 @@ function Cart() {
                 </td>
 
               <td>
-                <button className="" onClick={() => removeFromCart(item)}>Remove</button>
+                <button className="cart-rm" onClick={() => removeFromCart(item)}>X</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className="cart-total">Total items: {cart.length}</div>
       <button className="login-signup" onClick={removeAllItems}>Checkout</button>
     </section>
   );

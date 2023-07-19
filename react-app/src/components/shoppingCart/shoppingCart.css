@@ -19,3 +19,18 @@
     height: 40px;
     width: 40px;
 }
+
+.cart-rm {
+    border-radius: 7px;
+    border: none;
+    height: 30px;
+    width: 30px;
+    font-weight: bolder;
+    background-color: red;
+    cursor: pointer;
+}
+
+.cart-total {
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
