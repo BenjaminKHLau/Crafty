@@ -28,6 +28,7 @@ function Cart() {
       <table>
         <thead>
           <tr>
+            <th>Picture</th>
             <th>Item Name</th>
             <th>Action</th>
           </tr>
@@ -35,6 +36,12 @@ function Cart() {
         <tbody>
           {cart.map((item) => (
             <tr key={item.id}>
+              <td>
+                <Link to={`/merch/${item.id}`}>
+                <img src={item.image} className="cart-img"/>
+                </Link>
+
+                </td>
               <td>
                 <Link to={`/merch/${item.id}`}>
                 {item.name}
