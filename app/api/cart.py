@@ -20,8 +20,9 @@ cart_routes = Blueprint('cart', __name__)
 @cart_routes.route('/', methods=['GET'])
 @login_required
 def get_cart():
-    items = Cart.query.join(Merchandise).add_columns(Merchandise.id, Merchandise.name).all()
-    return jsonify([{'id': item.id, 'name': item.name} for item in items])
+    items = Cart.query.join(Merchandise).add_columns(Merchandise.id, Merchandise.name, Merchandise.merch_image_url).all()
+    # print("ITEMS HERE ~~~~~~~~~~~~~~~~~~~~~~~ \n\n\n",items)
+    return jsonify([{'id': item.id, 'name': item.name, 'image': item.merch_image_url} for item in items])
 
 
 # @cart_routes.route('/add', methods=['POST'])
