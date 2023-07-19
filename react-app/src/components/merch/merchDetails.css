@@ -231,3 +231,23 @@
     font-weight: 200;
     margin-top: 10px;
 }
+
+.add-cart-merch {
+    height: 40px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 15px;
+    transition-duration: 200ms;
+}
+
+.add-cart-merch:hover {
+    height: 40px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 15px;
+    transition-duration: 200ms;
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+}
