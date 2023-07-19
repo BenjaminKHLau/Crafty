@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 const NavBar = () => {
 	const session = useSelector((state) => state.session);
+	const cart = useSelector(state => state.cart.cart)
 	const user = session.user ? session.user : null;
 	// console.log("USER IN NAVBAR: ", user);
 
@@ -40,6 +41,7 @@ const NavBar = () => {
 					</div>
 					<div className="login-signup-container">
 						<Link to="/cart" className="login-signup">Cart</Link>
+					<div className="cart-num">{cart.length}</div>
 					</div>
 					<div className="login-signup-container">
 						<LogoutButton />
