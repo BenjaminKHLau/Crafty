@@ -61,11 +61,13 @@ function MerchDetailsComponent() {
   };
 
   const addToCart = (item) => {
-    dispatch(addToCartThunk(item));
+    dispatch(addToCartThunk(item))
+	.then(() => dispatch(getCartThunk()))
   };
 
   const removeFromCart = (itemId) => {
-    dispatch(deleteFromCartThunk(itemId));
+    dispatch(deleteFromCartThunk(itemId))
+	.then(() => dispatch(getCartThunk()))
   };
 
   const renderMerchandise = () => {
