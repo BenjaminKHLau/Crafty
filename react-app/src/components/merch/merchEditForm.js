@@ -70,8 +70,7 @@ function MerchEditFormComponent({merchId}){
       <ul className="errors">{isSubmitted && showErrors}</ul>
 
 
-      {/* <div className="form-css"> */}
-        {/* <div className="form-box"> */}
+
           <label className="form-stuff">
             Product Name
             </label>
@@ -84,7 +83,7 @@ function MerchEditFormComponent({merchId}){
               onChange={(e) => setName(e.target.value)}
             />
 
-          {/* </div> */}
+
 
           <label className="form-stuff">
             Image URL
@@ -109,9 +108,7 @@ function MerchEditFormComponent({merchId}){
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-        {/* </div> */}
 
-        {/* <div className="submit"> */}
           <button
             type="submit"
             disabled={isSubmitted && errors.length > 0}
@@ -122,7 +119,7 @@ function MerchEditFormComponent({merchId}){
             Edit Merchandise
           </button>
 
-      {/* </div> */}
+
     </form>
     )
 }
